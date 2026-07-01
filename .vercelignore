@@ -1,0 +1,10 @@
+# Ignore only the large binary documents that may exceed Vercel's upload limits
+files/애쉬제로 최종 발표 자료.pptx
+files/코드베인_동행자_디자인_분석서.pdf
+files/자기소개서_김태윤.pdf
+files/마비노기_모바일_콘텐츠_기획.pptx
+
+# Keep smaller files that should be downloadable from the site
+# files/코드베인_데이터_테이블.xlsx
+# files/여우의_복수_프로젝트.pptx
+# files/코드베인_동행자_BT_설계.pdf

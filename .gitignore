@@ -1,0 +1,19 @@
+# Node / JS artifacts
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vercel / build artifacts
+.vercel/
+
+# Ignore local editor files
+.vscode/
+
+# Large files exceeding GitHub's 100MB limit (hosted externally)
+files/코드베인_동행자_디자인_분석서.pdf
+files/애쉬제로 최종 발표 자료.pptx
