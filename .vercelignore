@@ -4,6 +4,9 @@ files/코드베인_동행자_디자인_분석서.pdf
 files/자기소개서_김태윤.pdf
 files/마비노기_모바일_콘텐츠_기획.pptx
 
+# 원본 무압축 PDF 보관 폴더 (배포본은 files/codevein_analysis.pdf)
+public/
+
 # Keep smaller files that should be downloadable from the site
 # files/코드베인_데이터_테이블.xlsx
 # files/여우의_복수_프로젝트.pptx
