@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "게이미피케이션 기획" },
         { title: "우마무스메 튜토리얼 개선 기획" },
         { title: "겟앰프드 캐릭터 기획" },
-        { title: "팀 프로젝트 인벤토리 기획" }
+        { title: "팀 프로젝트 인벤토리 기획" },
+        { title: "웹툰 IP 기반 모바일 게임 제안서" }
     ];
 
     let currentIndex = 0;
@@ -110,61 +111,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. 방문자 수 카운터 (CounterAPI 서버 공유 카운터 - PC/모바일 동일 집계)
+    // 4. 방문자 수 카운터 (Abacus 서버 공유 카운터 - PC/모바일 동일 집계)
+    // 이전에 쓰던 CounterAPI v1이 서비스 종료(410 Gone)되어 Abacus로 교체.
+    // 인증 키가 필요 없고 CORS가 열려 있어 정적 배포만으로 동작한다.
+    // 응답 형식: { "value": 숫자 } / 미존재 키 조회 시 404
     const todayElem = document.getElementById('today-count');
     const totalElem = document.getElementById('total-count');
 
     if (todayElem && totalElem) {
         (async () => {
+            const BASE = 'https://abacus.jasoncameron.dev';
             const NAMESPACE = 'kimtaeyun-game-portfolio';
-            const base = `https://api.counterapi.dev/v1/${NAMESPACE}`;
-            const today = new Date().toLocaleDateString('en-CA'); // 로컬 기준 YYYY-MM-DD
+
+            // "오늘"의 기준을 방문자 로컬 시간대가 아니라 KST(UTC+9)로 고정한다.
+            // 해외에서 접속해도 국내 기준과 같은 날짜 버킷에 집계되도록 하기 위함.
+            const kstNow = new Date(Date.now() + 9 * 60 * 60 * 1000);
+            const today = kstNow.toISOString().slice(0, 10); // YYYY-MM-DD
             const todayKey = `daily-${today}`;
             const LAST_VISIT_KEY = 'visit_last_date';
-            const LOCK_KEY = 'visit_count_lock';
-            const LOCK_TTL_MS = 5000;
 
             // 같은 브라우저에서 당일 이미 집계했으면 증가 없이 조회만 (새로고침 중복 집계 방지)
-            const alreadyCountedToday = localStorage.getItem(LAST_VISIT_KEY) === today;
-            // 락이 걸려 있으면(직전 요청이 아직 진행/완료 처리 중) 증가를 건너뛴다
-            // - 동시에 여러 탭이 열리거나 새로고침이 연타되어도 /up이 중복 호출되지 않도록 방지
-            const lockUntil = Number(localStorage.getItem(LOCK_KEY) || 0);
-            const isLocked = Date.now() < lockUntil;
-            const shouldIncrement = !alreadyCountedToday && !isLocked;
+            const shouldIncrement = localStorage.getItem(LAST_VISIT_KEY) !== today;
+            const verb = shouldIncrement ? 'hit' : 'get';
 
-            if (shouldIncrement) {
-                localStorage.setItem(LOCK_KEY, String(Date.now() + LOCK_TTL_MS));
-            }
-
-            const verb = shouldIncrement ? '/up' : '';
+            // 응답을 기다리는 사이에 새로고침/다중 탭으로 중복 증가하는 것을 막기 위해 먼저 기록한다.
+            // 요청이 실패하면 아래 catch에서 되돌려 다음 방문에 다시 시도한다.
+            if (shouldIncrement) localStorage.setItem(LAST_VISIT_KEY, today);
 
             try {
                 const [totalRes, todayRes] = await Promise.all([
-                    fetch(`${base}/total${verb}`, { cache: 'no-store' }),
-                    fetch(`${base}/${todayKey}${verb}`, { cache: 'no-store' })
+                    fetch(`${BASE}/${verb}/${NAMESPACE}/total`, { cache: 'no-store' }),
+                    fetch(`${BASE}/${verb}/${NAMESPACE}/${todayKey}`, { cache: 'no-store' })
                 ]);
                 if (!totalRes.ok || !todayRes.ok) throw new Error('visitor api response not ok');
 
                 const [totalData, todayData] = await Promise.all([totalRes.json(), todayRes.json()]);
-                if (typeof todayData.count !== 'number' || typeof totalData.count !== 'number') {
+                if (typeof todayData.value !== 'number' || typeof totalData.value !== 'number') {
                     throw new Error('visitor api returned invalid payload');
                 }
 
-                // 서버 반영이 확인된 경우에만 "오늘 집계 완료"로 기록 (실패 시 다음 새로고침에서 재시도)
-                if (shouldIncrement) localStorage.setItem(LAST_VISIT_KEY, today);
-
-                todayElem.textContent = todayData.count;
-                totalElem.textContent = totalData.count;
-                localStorage.setItem('visit_today_cache', todayData.count);
-                localStorage.setItem('visit_total_cache', totalData.count);
+                todayElem.textContent = todayData.value;
+                totalElem.textContent = totalData.value;
+                localStorage.setItem('visit_today_cache', todayData.value);
+                localStorage.setItem('visit_total_cache', totalData.value);
             } catch (err) {
+                // 실패 시 선기록을 되돌려 다음 방문에 다시 집계되게 한다
+                if (shouldIncrement) localStorage.removeItem(LAST_VISIT_KEY);
                 // 네트워크 오류 시 마지막으로 표시된 값을 유지 (PC/모바일 모두 동일 캐시 값 기준)
                 const cachedToday = localStorage.getItem('visit_today_cache');
                 const cachedTotal = localStorage.getItem('visit_total_cache');
                 if (cachedToday) todayElem.textContent = cachedToday;
                 if (cachedTotal) totalElem.textContent = cachedTotal;
-            } finally {
-                if (shouldIncrement) localStorage.removeItem(LOCK_KEY);
             }
         })();
     }

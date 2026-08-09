@@ -1,11 +1,13 @@
 # Ignore only the large binary documents that may exceed Vercel's upload limits
 files/애쉬제로 최종 발표 자료.pptx
 files/코드베인_동행자_디자인_분석서.pdf
-files/자기소개서_김태윤.pdf
 files/마비노기_모바일_콘텐츠_기획.pptx
 
 # 원본 무압축 PDF 보관 폴더 (배포본은 files/codevein_analysis.pdf)
 public/
+
+# 방문자 카운터(Abacus) 관리 키 - 배포본에 포함되면 안 됨
+.counter-admin-key.txt
 
 # Keep smaller files that should be downloadable from the site
 # files/코드베인_데이터_테이블.xlsx

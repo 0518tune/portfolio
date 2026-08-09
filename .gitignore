@@ -14,6 +14,9 @@ Thumbs.db
 # Ignore local editor files
 .vscode/
 
+# 방문자 카운터(Abacus) 관리 키 - 공개 저장소에 올라가면 안 됨
+.counter-admin-key.txt
+
 # Large files exceeding GitHub's 100MB limit (hosted externally)
 files/코드베인_동행자_디자인_분석서.pdf
 files/애쉬제로 최종 발표 자료.pptx
