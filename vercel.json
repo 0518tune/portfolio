@@ -16,6 +16,12 @@
       ]
     },
     {
+      "source": "/files/여우의_복수_기획서.pdf",
+      "headers": [
+        { "key": "Content-Disposition", "value": "attachment; filename*=UTF-8''%EC%97%AC%EC%9A%B0%EC%9D%98_%EB%B3%B5%EC%88%98_%EA%B8%B0%ED%9A%8D%EC%84%9C_%EA%B9%80%ED%83%9C%EC%9C%A4.pdf" }
+      ]
+    },
+    {
       "source": "/files/:file",
       "headers": [
         { "key": "Content-Disposition", "value": "attachment" }
