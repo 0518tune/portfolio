@@ -1,31 +1,97 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게임기획자 김태윤 포트폴리오</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>게임기획자 김태윤 포트폴리오 | 시스템·전투 기획</title>
+    <meta name="description" content="유니티 모바일 게임 Google Play 출시부터 언리얼 엔진 5 팀 프로젝트 수상까지. 시스템·전투 기획을 전문으로 하는 신입 게임 기획자 김태윤의 포트폴리오입니다.">
+    <meta name="author" content="김태윤">
+    <meta name="theme-color" content="#0b0d0e">
+    <link rel="canonical" href="https://taeyun-portfolio-kappa.vercel.app/">
+
+    <!-- Open Graph (카카오톡·링크드인·슬랙 링크 미리보기) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="게임기획자 김태윤 포트폴리오">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:url" content="https://taeyun-portfolio-kappa.vercel.app/">
+    <meta property="og:title" content="게임기획자 김태윤 포트폴리오">
+    <meta property="og:description" content="유니티 모바일 게임 출시부터 언리얼5 게임 제작·수상까지, AI와 실전 구현력을 갖춘 신입 게임 기획자입니다.">
+    <meta property="og:image" content="https://taeyun-portfolio-kappa.vercel.app/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="게임기획자 김태윤 포트폴리오">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="게임기획자 김태윤 포트폴리오">
+    <meta name="twitter:description" content="유니티 모바일 게임 출시부터 언리얼5 게임 제작·수상까지, AI와 실전 구현력을 갖춘 신입 게임 기획자입니다.">
+    <meta name="twitter:image" content="https://taeyun-portfolio-kappa.vercel.app/images/og-image.png">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
+    <!-- 폰트: @import 직렬 체인을 없애고 head에서 병렬로 받는다 -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap">
+
+    <!-- Tailwind: CDN JIT(407KB JS) 대신 로컬 빌드 결과물. 클래스 수정 후 `npm run css` 필요 -->
+    <link rel="stylesheet" href="tailwind.css">
     <link rel="stylesheet" href="styles.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "김태윤",
+      "jobTitle": "게임 기획자",
+      "email": "mailto:0518tune@gmail.com",
+      "telephone": "+82-10-5750-7113",
+      "url": "https://taeyun-portfolio-kappa.vercel.app/",
+      "image": "https://taeyun-portfolio-kappa.vercel.app/images/og-image.png",
+      "description": "시스템·전투 기획을 전문으로 하는 신입 게임 기획자",
+      "knowsAbout": ["게임 시스템 기획", "전투 디자인", "Unreal Engine 5", "Unity", "Behavior Tree", "레벨 기획"]
+    }
+    </script>
 </head>
 <body class="bg-[#0b0d0e] text-slate-200 font-sans selection:bg-[#2efcb7] selection:text-black antialiased tracking-tight">
 
-    <div id="mouse-trailer"></div>
+    <a href="#about" class="skip-link">본문으로 건너뛰기</a>
+    <div id="scroll-progress" aria-hidden="true"></div>
+    <div id="mouse-trailer" aria-hidden="true"></div>
 
     <nav class="fixed top-0 left-0 w-full z-50 bg-[#0b0d0e]/90 backdrop-blur-md border-b border-white/5 px-6 md:px-12 py-4 flex justify-between items-center">
-        <div class="text-[#2efcb7] font-extrabold text-base md:text-lg tracking-wider flex items-center gap-2 font-display">
-            <svg class="w-5 h-5 text-[#2efcb7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="6" width="20" height="12" rx="3"></rect><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"></path></svg>
+        <a href="#home" class="text-[#2efcb7] font-extrabold text-base md:text-lg tracking-wider flex items-center gap-2 font-display">
+            <svg class="w-5 h-5 text-[#2efcb7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="3"></rect><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"></path></svg>
             게임기획자 김태윤
-        </div>
+        </a>
         <div class="hidden md:flex gap-8 text-xs font-bold tracking-widest text-slate-400 font-display">
-            <a href="#home" class="hover:text-[#2efcb7] transition-colors duration-300">HOME</a>
-            <a href="#about" class="hover:text-[#2efcb7] transition-colors duration-300">ABOUT</a>
-            <a href="#prototypes" class="hover:text-[#2efcb7] transition-colors duration-300">PROTOTYPES</a>
-            <a href="#portfolio" class="hover:text-[#2efcb7] transition-colors duration-300">PORTFOLIO</a>
-            <a href="#projects" class="hover:text-[#2efcb7] transition-colors duration-300">PROJECTS</a>
-            <a href="#skills" class="hover:text-[#2efcb7] transition-colors duration-300">SKILLS</a>
-            <a href="#contact" class="hover:text-[#2efcb7] transition-colors duration-300">CONTACT</a>
+            <a href="#home" data-nav="home" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">HOME</a>
+            <a href="#about" data-nav="about" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">ABOUT</a>
+            <a href="#prototypes" data-nav="prototypes" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">PROTOTYPES</a>
+            <a href="#portfolio" data-nav="portfolio" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">PORTFOLIO</a>
+            <a href="#projects" data-nav="projects" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">PROJECTS</a>
+            <a href="#skills" data-nav="skills" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">SKILLS</a>
+            <a href="#contact" data-nav="contact" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">CONTACT</a>
         </div>
+        <button id="nav-toggle" class="md:hidden p-2 -mr-2 text-slate-300 hover:text-[#2efcb7] transition-colors"
+                aria-label="메뉴 열기" aria-expanded="false" aria-controls="mobile-menu">
+            <svg id="nav-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path></svg>
+            <svg id="nav-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
     </nav>
+
+    <div id="mobile-menu" class="md:hidden" hidden>
+        <div class="flex flex-col px-6 py-3 font-display">
+            <a href="#home" data-nav="home" class="nav-link-mobile">HOME</a>
+            <a href="#about" data-nav="about" class="nav-link-mobile">ABOUT</a>
+            <a href="#prototypes" data-nav="prototypes" class="nav-link-mobile">PROTOTYPES</a>
+            <a href="#portfolio" data-nav="portfolio" class="nav-link-mobile">PORTFOLIO</a>
+            <a href="#projects" data-nav="projects" class="nav-link-mobile">PROJECTS</a>
+            <a href="#skills" data-nav="skills" class="nav-link-mobile">SKILLS</a>
+            <a href="#contact" data-nav="contact" class="nav-link-mobile">CONTACT</a>
+        </div>
+    </div>
 
     <section id="home" class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
         <div class="mb-5 inline-flex items-center justify-center px-4 py-1.5 rounded-full border border-[#2efcb7]/40 bg-[#2efcb7]/5 text-[#2efcb7] text-[11px] font-extrabold uppercase tracking-widest font-display leading-none">
@@ -62,7 +128,7 @@
         <div class="lg:col-span-7">
             <span class="text-xs font-extrabold uppercase tracking-widest text-[#00f0ff] font-display block mb-2">ABOUT</span>
             <h2 class="text-4xl font-black text-white mb-8 font-display section-title">자기소개</h2>
-            <div class="mb-10 break-keep">
+            <div data-reveal class="mb-10 break-keep">
                 <p class="text-slate-200 text-[17px] md:text-[19px] font-medium leading-relaxed mb-3">
                     아이디어를 직관적인 규칙으로 설계하고 빠르게 현실화하는 신입 게임 기획자입니다.
                 </p>
@@ -71,21 +137,21 @@
                 </p>
 
                 <ol class="space-y-7">
-                    <li class="flex gap-4">
+                    <li data-reveal class="flex gap-4">
                         <span class="flex-shrink-0 text-[#2efcb7]/70 text-xs font-extrabold font-display pt-1 w-6">01</span>
                         <div>
                             <h3 class="text-white font-bold text-[16px] mb-2 font-display">AI 활용과 바이브 코딩 기반의 실전 출시</h3>
                             <p class="text-slate-400 text-[14.5px] font-medium leading-relaxed">생성형 AI로 아트 리소스부터 프로그래밍까지 기획의 범위를 확장했습니다. 유니티 모바일 게임 '슬링펭귄'을 직접 개발해 <span class="text-slate-200">Google Play 정식 출시</span>까지 완성했습니다.</p>
                         </div>
                     </li>
-                    <li class="flex gap-4">
+                    <li data-reveal class="flex gap-4">
                         <span class="flex-shrink-0 text-[#2efcb7]/70 text-xs font-extrabold font-display pt-1 w-6">02</span>
                         <div>
                             <h3 class="text-white font-bold text-[16px] mb-2 font-display">언리얼 엔진 5 팀 프로젝트 2회 참여 및 수상</h3>
                             <p class="text-slate-400 text-[14.5px] font-medium leading-relaxed">두 차례의 UE5 팀 프로젝트에서 부팀장을 맡아 팀을 유기적으로 조율하고 빠른 실행력과 책임감으로 이슈를 선제적으로 해결하여, <span class="text-slate-200">KOG 프로젝트 전체 1등(최우수상)과 졸업작품 전체 2등(우수상) 수상을 달성했습니다.</span></p>
                         </div>
                     </li>
-                    <li class="flex gap-4">
+                    <li data-reveal class="flex gap-4">
                         <span class="flex-shrink-0 text-[#2efcb7]/70 text-xs font-extrabold font-display pt-1 w-6">03</span>
                         <div>
                             <h3 class="text-white font-bold text-[16px] mb-2 font-display">장르를 가리지 않는 제너럴 기획 역량</h3>
@@ -108,7 +174,7 @@
             </div>
         </div>
         <div class="lg:col-span-5 w-full mt-10 lg:mt-0 flex flex-col gap-4 lg:h-full lg:justify-between">
-            <div class="p-5 bg-[#121416] border border-white/5 rounded-xl hover:border-[#2efcb7]/30 transition-all duration-400 group shadow-lg">
+            <div data-reveal class="p-5 bg-[#121416] border border-white/5 rounded-xl hover:border-[#2efcb7]/30 transition-all duration-400 group shadow-lg">
                 <div class="flex items-center gap-4 mb-2">
                     <div class="p-2 bg-white/5 rounded-lg text-[#2efcb7]">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -117,7 +183,7 @@
                 </div>
                 <p class="text-[13px] text-slate-400 font-medium leading-relaxed pl-[52px] break-keep">리더로서 활발한 소통으로 팀을 조율하고 기술 이슈를 선제적으로 해결하여 목표한 품질과 일정을 지켜냅니다.</p>
             </div>
-            <div class="p-5 bg-[#121416] border border-white/5 rounded-xl hover:border-[#2efcb7]/30 transition-all duration-400 group shadow-lg">
+            <div data-reveal class="p-5 bg-[#121416] border border-white/5 rounded-xl hover:border-[#2efcb7]/30 transition-all duration-400 group shadow-lg">
                 <div class="flex items-center gap-4 mb-2">
                     <div class="p-2 bg-white/5 rounded-lg text-[#2efcb7]">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path></svg>
@@ -126,7 +192,7 @@
                 </div>
                 <p class="text-[13px] text-slate-400 font-medium leading-relaxed pl-[52px] break-keep">인벤토리·강화·스킬·성장 체계를 데이터 테이블 기반으로 설계합니다.</p>
             </div>
-            <div class="p-5 bg-[#121416] border border-white/5 rounded-xl hover:border-[#2efcb7]/30 transition-all duration-400 group shadow-lg">
+            <div data-reveal class="p-5 bg-[#121416] border border-white/5 rounded-xl hover:border-[#2efcb7]/30 transition-all duration-400 group shadow-lg">
                 <div class="flex items-center gap-4 mb-2">
                     <div class="p-2 bg-white/5 rounded-lg text-[#2efcb7]">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="6" y1="11" x2="10" y2="11"></line><line x1="8" y1="9" x2="8" y2="13"></line><line x1="15" y1="12" x2="15.01" y2="12"></line><line x1="18" y1="10" x2="18.01" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.544-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg>
@@ -135,7 +201,7 @@
                 </div>
                 <p class="text-[13px] text-slate-400 font-medium leading-relaxed pl-[52px] break-keep">조작감·타이밍·공방 규칙을 다듬어 장르별 핵심 재미를 만듭니다.</p>
             </div>
-            <div class="p-5 bg-[#121416] border border-white/5 rounded-xl hover:border-[#2efcb7]/30 transition-all duration-400 group shadow-lg">
+            <div data-reveal class="p-5 bg-[#121416] border border-white/5 rounded-xl hover:border-[#2efcb7]/30 transition-all duration-400 group shadow-lg">
                 <div class="flex items-center gap-4 mb-2">
                     <div class="p-2 bg-white/5 rounded-lg text-[#2efcb7]">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><circle cx="18" cy="6" r="3"></circle><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"></path><path d="M12 12v3"></path></svg>
@@ -144,7 +210,7 @@
                 </div>
                 <p class="text-[13px] text-slate-400 font-medium leading-relaxed pl-[52px] break-keep">몬스터 행동 패턴과 AI 설계로 전투의 깊이와 전략성을 더합니다.</p>
             </div>
-            <div class="p-5 bg-[#121416] border border-white/5 rounded-xl hover:border-[#00f0ff]/40 transition-all duration-400 group shadow-lg">
+            <div data-reveal class="p-5 bg-[#121416] border border-white/5 rounded-xl hover:border-[#00f0ff]/40 transition-all duration-400 group shadow-lg">
                 <div class="flex items-center gap-4 mb-2">
                     <div class="p-2 bg-white/5 rounded-lg text-[#00f0ff]">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91 0z"></path><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
@@ -163,22 +229,27 @@
             <!-- 캐러셀 폭 1.5배 (max-w-3xl 768px -> max-w-6xl 1152px).
                  모든 proto 이미지의 원본 가로폭이 1152px보다 크므로 확대 없이 축소만 되어 화질 저하가 없다. -->
             
-            <div class="relative aspect-video w-full overflow-hidden bg-[#121416] rounded-xl border border-white/5 shadow-2xl group">
+            <div id="carousel" class="relative aspect-video w-full overflow-hidden bg-[#121416] rounded-xl border border-white/5 shadow-2xl group cursor-zoom-in"
+                 role="region" aria-roledescription="캐러셀" aria-label="기획 프로토타입 슬라이드" tabindex="0">
                 <div id="carousel-track" class="flex flex-nowrap w-full h-full transition-transform duration-500 ease-in-out" style="will-change: transform;">
-                    <div class="w-full h-full flex-shrink-0"><img src="./images/proto-1.png" alt="프로토타입 1" class="w-full h-full object-contain"></div>
-                    <div class="w-full h-full flex-shrink-0"><img src="./images/proto-2.png" alt="프로토타입 2" class="w-full h-full object-contain"></div>
-                    <div class="w-full h-full flex-shrink-0"><img src="./images/proto-3.png" alt="프로토타입 3" class="w-full h-full object-contain"></div>
-                    <div class="w-full h-full flex-shrink-0"><img src="./images/proto-4.png" alt="프로토타입 4" class="w-full h-full object-contain"></div>
-                    <div class="w-full h-full flex-shrink-0"><img src="./images/proto-5.png" alt="프로토타입 5" class="w-full h-full object-contain"></div>
+                    <div class="w-full h-full flex-shrink-0"><picture class="contents"><source srcset="./images/proto-1.webp" type="image/webp"><img src="./images/proto-1.png" alt="게이미피케이션 기획 기획서 슬라이드" class="w-full h-full object-contain" width="1315" height="622" loading="lazy" decoding="async"></picture></div>
+                    <div class="w-full h-full flex-shrink-0"><picture class="contents"><source srcset="./images/proto-2.webp" type="image/webp"><img src="./images/proto-2.png" alt="우마무스메 튜토리얼 개선 기획 기획서 슬라이드" class="w-full h-full object-contain" width="1343" height="685" loading="lazy" decoding="async"></picture></div>
+                    <div class="w-full h-full flex-shrink-0"><picture class="contents"><source srcset="./images/proto-3.webp" type="image/webp"><img src="./images/proto-3.png" alt="겟앰프드 캐릭터 기획 기획서 슬라이드" class="w-full h-full object-contain" width="1262" height="795" loading="lazy" decoding="async"></picture></div>
+                    <div class="w-full h-full flex-shrink-0"><picture class="contents"><source srcset="./images/proto-4.webp" type="image/webp"><img src="./images/proto-4.png" alt="팀 프로젝트 인벤토리 기획 기획서 슬라이드" class="w-full h-full object-contain" width="1223" height="510" loading="lazy" decoding="async"></picture></div>
+                    <div class="w-full h-full flex-shrink-0"><picture class="contents"><source srcset="./images/proto-5.webp" type="image/webp"><img src="./images/proto-5.png" alt="웹툰 IP 기반 모바일 게임 제안서 기획서 슬라이드" class="w-full h-full object-contain" width="2347" height="1132" loading="lazy" decoding="async"></picture></div>
                 </div>
                 <div class="absolute bottom-5 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full bg-black/80 backdrop-blur border border-white/10 z-10">
-                    <p id="carousel-title" class="text-white font-extrabold text-xs md:text-sm tracking-wide">게이미피케이션 기획</p>
+                    <p id="carousel-title" aria-live="polite" class="text-white font-extrabold text-xs md:text-sm tracking-wide">게이미피케이션 기획</p>
                 </div>
-                <button id="prev-btn" class="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/60 text-slate-300 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                <button id="prev-btn" type="button" aria-label="이전 슬라이드" class="carousel-nav left-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button id="next-btn" class="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/60 text-slate-300 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                <button id="next-btn" type="button" aria-label="다음 슬라이드" class="carousel-nav right-3">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                <button id="zoom-btn" type="button" aria-label="슬라이드 확대해서 보기" class="carousel-zoom">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M11 8v6M8 11h6M19 11a8 8 0 11-16 0 8 8 0 0116 0z"></path></svg>
+                    <span>확대</span>
                 </button>
             </div>
             <div class="mt-5 flex flex-col items-center gap-3">
@@ -189,17 +260,17 @@
     </section>
 
     <section id="portfolio" class="py-32 max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
+        <div data-reveal class="text-center mb-16">
             <span class="text-xs font-extrabold uppercase tracking-widest text-[#00f0ff] font-display block mb-2">DOCUMENT</span>
             <h2 class="text-4xl font-black text-white font-display section-title">기획 포트폴리오</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
-            <div class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
+            <div data-reveal class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
                 <div class="relative aspect-video overflow-hidden bg-black border-b border-white/5">
                     <div class="absolute top-3 left-3 z-10">
                         <span class="category-pill category-pill-cyan">🔍 역기획 | AI 시스템 분석</span>
                     </div>
-                    <img src="./images/codevein.png" alt="코드베인 기획서" class="w-full h-full object-cover transition-all duration-500 card-img-dim">
+                    <picture class="contents"><source srcset="./images/codevein.webp" type="image/webp"><img src="./images/codevein.png" alt="코드베인 기획서" class="w-full h-full object-cover transition-all duration-500 card-img-dim" width="1143" height="642" loading="lazy" decoding="async"></picture>
                 </div>
                 <div class="p-8 flex-1 flex flex-col justify-between">
                     <div>
@@ -207,24 +278,24 @@
                         <p class="text-[15px] text-slate-400 font-medium leading-relaxed mb-8 break-keep">소울라이크 장르의 진입장벽을 낮추고 스토리 몰입을 돕는 핵심 요소인 '동행자 시스템'을 분석 후 역기획 했습니다. NPC AI의 전투 기여도와 플레이어와의 상호작용 메커니즘을 심도 있게 다룹니다.</p>
                     </div>
                     <div class="grid grid-cols-2 gap-3 content-start">
-                        <a href="https://canva.link/m8n0c9ks4fjltev" target="_blank" class="btn-sm btn-mint">분석서 바로보기 📄</a>
-                        <a href="files/codevein_analysis.pdf" download="코드베인_동행자_디자인_분석서_김태윤.pdf" class="btn-sm btn-dark">분석서 PDF ⬇️</a>
+                        <a href="files/수정본/코드베인 동행자 디자인 분석서.pdf#zoom=page-fit" target="_blank" rel="noopener noreferrer" class="btn-sm btn-mint">분석서 바로보기 📄</a>
+                        <a href="files/수정본/코드베인 동행자 디자인 분석서.pptx" download="코드베인 동행자 디자인 분석서.pptx" class="btn-sm btn-dark">분석서 PPTX ⬇️</a>
                         
-                        <a href="https://canva.link/pcnpvpdm64ivpba" target="_blank" class="btn-sm btn-mint">BT 설계 바로보기 📄</a>
-                        <a href="files/코드베인_동행자_BT_설계.pdf" download="코드베인_동행자_BT_설계_김태윤.pdf" class="btn-sm btn-dark">BT 설계 PDF ⬇️</a>
+                        <a href="files/수정본/동행자_BT설계.pdf#zoom=page-fit" target="_blank" rel="noopener noreferrer" class="btn-sm btn-mint">BT설계 바로보기 📄</a>
+                        <a href="files/수정본/동행자_BT설계.pptx" download="동행자_BT설계.pptx" class="btn-sm btn-dark">BT 설계 PPTX ⬇️</a>
                         
                         <a href="https://docs.google.com/spreadsheets/d/1lbTVJU8kt5Lj7qX3FYuKSypy2JdJ3eDJg0z09jxb9tQ/edit?usp=sharing" target="_blank" class="btn-sm btn-mint">데이터 테이블 바로보기 📄</a>
-                        <a href="files/코드베인_데이터_테이블.xlsx" download="코드베인_데이터_테이블_김태윤.xlsx" class="btn-sm btn-dark">데이터 테이블 xlsx ⬇️</a>
+                        <a href="files/수정본/코드베인_데이터_테이블.xlsx" download="코드베인_데이터_테이블.xlsx" class="btn-sm btn-dark">데이터 테이블 xlsx ⬇️</a>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
+            <div data-reveal class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
                 <div class="relative aspect-video overflow-hidden bg-black border-b border-white/5">
                     <div class="absolute top-3 left-3 z-10">
                         <span class="category-pill category-pill-mint">🎃 콘텐츠 / 이벤트 기획</span>
                     </div>
-                    <img src="./images/mabinogi-mobile.png" alt="마비노기 모바일 기획서" class="w-full h-full object-cover transition-all duration-500 card-img-dim">
+                    <picture class="contents"><source srcset="./images/mabinogi-mobile.webp" type="image/webp"><img src="./images/mabinogi-mobile.png" alt="마비노기 모바일 기획서" class="w-full h-full object-cover transition-all duration-500 card-img-dim" width="1395" height="811" loading="lazy" decoding="async"></picture>
                 </div>
                 <div class="p-8 flex-1 flex flex-col justify-between">
                     <div>
@@ -242,17 +313,17 @@
 
     <section id="projects" class="py-32 bg-[#090a0b]/60 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
+            <div data-reveal class="text-center mb-16">
                 <span class="text-xs font-extrabold uppercase tracking-widest text-[#2efcb7] font-display block mb-2">PORTFOLIO</span>
                 <h2 class="text-4xl font-black text-white font-display section-title">개발 프로젝트</h2>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-                <div class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
+                <div data-reveal class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
                     <div class="relative aspect-video overflow-hidden bg-black border-b border-white/5">
                         <div class="absolute top-3 left-3 z-10">
                             <span class="category-pill category-pill-cyan">🦊 졸업 작품 | 부팀장</span>
                         </div>
-                        <img src="./images/fox-revenge.png" alt="여우의 복수" class="w-full h-full object-cover transition-all duration-500 card-img-dim">
+                        <picture class="contents"><source srcset="./images/fox-revenge.webp" type="image/webp"><img src="./images/fox-revenge.png" alt="여우의 복수" class="w-full h-full object-cover transition-all duration-500 card-img-dim" width="1080" height="604" loading="lazy" decoding="async"></picture>
                     </div>
                     <div class="p-8 flex-1 flex flex-col justify-between">
                         <div>
@@ -271,12 +342,12 @@
                     </div>
                 </div>
 
-                <div class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
+                <div data-reveal class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
                     <div class="relative aspect-video overflow-hidden bg-black border-b border-white/5">
                         <div class="absolute top-3 left-3 z-10">
                             <span class="category-pill category-pill-mint">🛡️ 팀 프로젝트 | 부팀장</span>
                         </div>
-                        <img src="./images/ash-zero.png" alt="애쉬 제로" class="w-full h-full object-cover transition-all duration-500 card-img-dim">
+                        <picture class="contents"><source srcset="./images/ash-zero.webp" type="image/webp"><img src="./images/ash-zero.png" alt="애쉬 제로" class="w-full h-full object-cover transition-all duration-500 card-img-dim" width="1278" height="716" loading="lazy" decoding="async"></picture>
                     </div>
                     <div class="p-8 flex-1 flex flex-col justify-between">
                         <div>
@@ -299,12 +370,12 @@
                 </div>
 
                 <!-- SlingPenguin: Google Play 정식 출시작 -->
-                <div class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
+                <div data-reveal class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
                     <div class="relative aspect-video overflow-hidden bg-black border-b border-white/5">
                         <div class="absolute top-3 left-3 z-10">
                             <span class="category-pill category-pill-cyan">📱 Google Play 출시작 | 2026.08.08</span>
                         </div>
-                        <img src="./images/slingpenguin.jpg" alt="슬링펭귄 (SlingPenguin) 게임 아이콘" class="w-full h-full object-cover transition-all duration-500 card-img-dim">
+                        <picture class="contents"><source srcset="./images/slingpenguin.webp" type="image/webp"><img src="./images/slingpenguin.jpg" alt="슬링펭귄 (SlingPenguin) 게임 아이콘" class="w-full h-full object-cover transition-all duration-500 card-img-dim" width="1280" height="720" loading="lazy" decoding="async"></picture>
                     </div>
                     <div class="p-8 flex-1 flex flex-col justify-between">
                         <div>
@@ -326,12 +397,12 @@
                 </div>
 
                 <!-- ProjectJOB: 신규 프로젝트 제안용 플레이어블 프로토타입 (내러티브 라이프 시뮬레이션 · 진로 탐색) -->
-                <div class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
+                <div data-reveal class="bg-[#121416] border border-white/5 rounded-xl overflow-hidden shadow-xl card-glow-effect flex flex-col justify-between">
                     <div class="relative aspect-video overflow-hidden bg-black border-b border-white/5">
                         <div class="absolute top-3 left-3 z-10">
                             <span class="category-pill category-pill-mint">🧪 프로토타입 제안 | Playable GDD</span>
                         </div>
-                        <img src="./images/projectjob.png" alt="ProjectJOB 갈림길 화면 - 직업 선택 인생 시뮬레이션" class="w-full h-full object-cover transition-all duration-500 card-img-dim">
+                        <picture class="contents"><source srcset="./images/projectjob.webp" type="image/webp"><img src="./images/projectjob.png" alt="ProjectJOB 갈림길 화면 - 직업 선택 인생 시뮬레이션" class="w-full h-full object-cover transition-all duration-500 card-img-dim" width="1916" height="910" loading="lazy" decoding="async"></picture>
                     </div>
                     <div class="p-8 flex-1 flex flex-col justify-between">
                         <div>
@@ -356,12 +427,12 @@
     </section>
 
     <section id="skills" class="py-32 max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
+        <div data-reveal class="text-center mb-16">
             <span class="text-xs font-extrabold uppercase tracking-widest text-[#00f0ff] font-display block mb-2">EXPERTISE</span>
             <h2 class="text-4xl font-black text-white font-display section-title">보유 스킬</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <div class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg">
+            <div data-reveal class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg">
                 <span class="text-[11px] font-extrabold text-[#2efcb7] bg-[#2efcb7]/10 px-2.5 py-1 rounded-md inline-block mb-4 tracking-wider">🎮 게임 디자인</span>
                 <div class="flex flex-wrap">
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">시스템 디자인</span>
@@ -369,7 +440,7 @@
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">콘텐츠 디자인</span>
                 </div>
             </div>
-            <div class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg">
+            <div data-reveal class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg">
                 <span class="text-[11px] font-extrabold text-[#2efcb7] bg-[#2efcb7]/10 px-2.5 py-1 rounded-md inline-block mb-4 tracking-wider">&lt;/&gt; 기술 스택</span>
                 <div class="flex flex-wrap">
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">Unreal Engine 5</span>
@@ -379,7 +450,7 @@
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">Data Table Structure</span>
                 </div>
             </div>
-            <div class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg">
+            <div data-reveal class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg">
                 <span class="text-[11px] font-extrabold text-[#2efcb7] bg-[#2efcb7]/10 px-2.5 py-1 rounded-md inline-block mb-4 tracking-wider">🔧 사용 도구</span>
                 <div class="flex flex-wrap">
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">생성형 AI</span>
@@ -400,29 +471,30 @@
                 <h2 class="text-4xl font-black text-white mb-4 font-display section-title">연락처</h2>
                 <p class="text-slate-400 text-[16px] font-medium mb-8">협업이나 채용 관련 문의는 아래 연락처로 연락해 주세요.</p>
                 <div class="space-y-4">
-                    <div class="contact-card">
+                    <div data-reveal class="contact-card">
                         <div class="text-[#00f0ff]"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
                         <div><p class="contact-label">전화번호</p><p class="contact-value">010-5750-7113</p></div>
                     </div>
-                    <div class="contact-card">
+                    <div data-reveal class="contact-card">
                         <div class="text-[#00f0ff]"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
                         <div><p class="contact-label">이메일</p><p class="contact-value">0518tune@gmail.com</p></div>
                     </div>
                 </div>
             </div>
-            <form id="contact-form" class="p-8 bg-[#121416] border border-white/5 rounded-xl space-y-5 shadow-2xl">
+            <form id="contact-form" data-reveal class="p-8 bg-[#121416] border border-white/5 rounded-xl space-y-5 shadow-2xl">
                 <div>
-                    <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5 font-display">이름</label>
-                    <input type="text" name="name" required placeholder="이름을 입력해주세요" class="form-input">
+                    <label for="cf-name" class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5 font-display">이름</label>
+                    <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="이름을 입력해주세요" class="form-input">
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5 font-display">이메일</label>
-                    <input type="email" name="email" required placeholder="이메일을 입력해주세요" class="form-input">
+                    <label for="cf-email" class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5 font-display">이메일</label>
+                    <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="이메일을 입력해주세요" class="form-input">
                 </div>
                 <div>
-                    <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5 font-display">메시지</label>
-                    <textarea name="message" rows="4" required placeholder="메시지를 입력해주세요" class="form-input"></textarea>
+                    <label for="cf-message" class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-400 mb-1.5 font-display">메시지</label>
+                    <textarea id="cf-message" name="message" rows="4" required placeholder="메시지를 입력해주세요" class="form-input"></textarea>
                 </div>
+                <div class="hp-field" aria-hidden="true"><label for="cf-company">회사</label><input type="text" id="cf-company" name="_honey" tabindex="-1" autocomplete="off"></div>
                 <button type="submit" class="w-full py-4 bg-[#2efcb7] text-black font-extrabold text-sm rounded hover:bg-[#20dfa0] transition-all shadow-[0_4px_20px_rgba(46,252,183,0.25)]">메시지 보내기 ⚡</button>
             </form>
         </div>
@@ -439,6 +511,56 @@
             <span>Total</span><span id="total-count" class="text-[#2efcb7] font-mono font-bold px-1">182</span>
         </div>
     </footer>
+
+    <!-- ===== 다운로드 확인 모달 ===== -->
+    <div id="dl-modal" class="overlay" hidden role="dialog" aria-modal="true" aria-labelledby="dl-modal-title">
+        <div class="overlay-backdrop" data-close></div>
+        <div class="dl-card" role="document">
+            <div class="dl-head">
+                <div class="dl-icon" id="dl-icon" aria-hidden="true">PDF</div>
+                <div class="dl-headtext">
+                    <h3 id="dl-modal-title">파일을 다운로드할까요?</h3>
+                    <p id="dl-name">파일명</p>
+                </div>
+            </div>
+            <dl class="dl-meta">
+                <div><dt>형식</dt><dd id="dl-type">—</dd></div>
+                <div><dt>용량</dt><dd id="dl-size">확인 중…</dd></div>
+            </dl>
+            <p id="dl-warn" class="dl-warn" hidden>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"></path></svg>
+                <span>용량이 큽니다. Wi-Fi 환경에서 받는 것을 권장합니다.</span>
+            </p>
+            <div class="dl-actions">
+                <button type="button" class="dl-btn dl-btn-ghost" data-close>취소</button>
+                <button type="button" class="dl-btn dl-btn-primary" id="dl-confirm">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"></path></svg>
+                    다운로드
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 프로토타입 라이트박스 ===== -->
+    <div id="lightbox" class="overlay" hidden role="dialog" aria-modal="true" aria-label="기획 프로토타입 확대 보기">
+        <div class="overlay-backdrop" data-close></div>
+        <div class="lb-stage">
+            <picture class="contents"><source id="lb-source" srcset="" type="image/webp"><img id="lb-img" src="" alt=""></picture>
+            <p id="lb-caption" aria-live="polite"></p>
+            <button type="button" id="lb-prev" class="lb-nav lb-prev" aria-label="이전 슬라이드">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+            <button type="button" id="lb-next" class="lb-nav lb-next" aria-label="다음 슬라이드">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+            <button type="button" class="lb-close" data-close aria-label="닫기">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== 토스트 알림 ===== -->
+    <div id="toast-wrap" aria-live="polite" aria-atomic="true"></div>
 
     <script src="script.js"></script>
 </body>

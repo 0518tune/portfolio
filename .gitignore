@@ -24,3 +24,6 @@ files/애쉬제로 최종 발표 자료.pptx
 # 원본 무압축 PDF 보관용 (107MB, GitHub 100MB 제한 초과)
 # 배포본은 이미지 재압축을 거친 files/codevein_analysis.pdf 를 사용
 public/
+
+# Playwright MCP 산출물 (검증용 스크린샷)
+.playwright-mcp/

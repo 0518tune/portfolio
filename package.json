@@ -1,0 +1,13 @@
+{
+  "name": "taeyun-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "게임기획자 김태윤 포트폴리오 (정적 사이트)",
+  "scripts": {
+    "css": "tailwindcss -i ./src/tailwind.input.css -o ./tailwind.css --minify",
+    "css:watch": "tailwindcss -i ./src/tailwind.input.css -o ./tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김태윤 — 게임 기획자 이력서</title>
+<style>
+/* ============================================================
+   PRINT / PDF 최적화
+   Ctrl+P → 대상 "PDF로 저장", 여백 "기본", 배경 그래픽 체크 권장
+   ============================================================ */
+@page {
+  size: A4;
+  margin: 15mm;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink:      #14181c;
+  --body:     #2b3238;
+  --muted:    #5f6a73;
+  --line:     #d4dae0;
+  --line-soft:#e7ebef;
+  --accent:   #0f5f56;
+  --accent-bg:#eef5f4;
+  --flag-bg:  #fff3cd;
+  --flag-line:#c99a12;
+}
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  font-family: 'Pretendard', 'Pretendard Variable', 'Malgun Gothic', '맑은 고딕',
+               -apple-system, 'Apple SD Gothic Neo', sans-serif;
+  font-size: 8.7pt;
+  line-height: 1.4;
+  color: var(--body);
+  background: #8b9199;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 화면에서는 A4 용지처럼 보이게, 인쇄 시에는 @page가 여백을 담당 */
+.sheet {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 15mm;
+  margin: 10mm auto;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,.28);
+}
+
+/* ---------- HEADER ---------- */
+.hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10mm;
+  padding-bottom: 2.6mm;
+  border-bottom: 2.2pt solid var(--accent);
+}
+.hdr-l { flex: 1 1 auto; }
+.name {
+  font-size: 21pt;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.05;
+}
+.name span {
+  font-size: 11pt;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin-left: 3mm;
+}
+.role {
+  margin-top: 1.2mm;
+  font-size: 10pt;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+}
+.hdr-r {
+  flex: 0 0 auto;
+  text-align: right;
+  font-size: 8.6pt;
+  line-height: 1.68;
+  color: var(--body);
+}
+.hdr-r b { color: var(--muted); font-weight: 600; display: inline-block; min-width: 15mm; text-align: left; }
+.hdr-r a { color: var(--body); text-decoration: none; }
+
+/* ---------- SECTION ---------- */
+.sec { margin-top: 3.1mm; }
+.sec > h2 {
+  font-size: 9.6pt;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: 0.04em;
+  padding-bottom: 1mm;
+  margin-bottom: 2.2mm;
+  border-bottom: 1pt solid var(--line);
+}
+.sec > h2 em {
+  font-style: normal;
+  font-size: 7.6pt;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  margin-left: 2mm;
+}
+
+/* ---------- SUMMARY ---------- */
+.summary { font-size: 8.8pt; line-height: 1.46; }
+.summary strong { color: var(--ink); font-weight: 700; }
+.summary + .kpi { margin-top: 2.2mm; }
+
+.kpi { display: flex; gap: 1.6mm; }
+.kpi div {
+  flex: 1;
+  background: var(--accent-bg);
+  border-left: 2pt solid var(--accent);
+  padding: .9mm 2.2mm;
+  font-size: 7.8pt;
+  line-height: 1.3;
+}
+.kpi b { font-weight: 800; color: var(--accent); letter-spacing: -0.01em; }
+.kpi span { color: var(--muted); }
+
+/* ---------- SKILLS ---------- */
+.skills { display: grid; grid-template-columns: 24mm 1fr; row-gap: 1.3mm; column-gap: 3mm; }
+.skills dt {
+  font-size: 8.2pt;
+  font-weight: 700;
+  color: var(--accent);
+  padding-top: .3mm;
+}
+.skills dd { font-size: 8.2pt; line-height: 1.38; }
+.skills dd b { color: var(--ink); font-weight: 700; }
+
+/* ---------- PROJECT ---------- */
+.proj {
+  margin-bottom: 2.6mm;
+  padding-bottom: 2.6mm;
+  border-bottom: 1px dashed var(--line-soft);
+}
+.proj:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+
+/* 제목·메타·첫 항목이 페이지 끝에 홀로 남지 않도록 보호 */
+.proj-top, .meta { page-break-after: avoid; break-after: avoid; }
+.proj-top, .meta, ul.star > li, ul.plain > li, .deliver, .kpi div, tr {
+  page-break-inside: avoid; break-inside: avoid;
+}
+
+.proj-top { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+.proj-top h3 {
+  font-size: 10pt;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.proj-top h3 em {
+  font-style: normal;
+  font-size: 8pt;
+  font-weight: 600;
+  color: var(--muted);
+  margin-left: 1.5mm;
+}
+.proj-top .when { font-size: 8pt; font-weight: 600; color: var(--muted); white-space: nowrap; }
+
+.meta {
+  margin: .9mm 0 1.5mm;
+  font-size: 7.9pt;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.meta b { color: var(--ink); font-weight: 700; }
+.meta .sep { color: var(--line); margin: 0 1.5mm; }
+.tag {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 7.4pt;
+  font-weight: 700;
+  padding: .3mm 1.6mm;
+  border-radius: 1.5px;
+  vertical-align: 1px;
+  margin-right: 1.2mm;
+}
+
+ul.star { list-style: none; }
+ul.star > li {
+  position: relative;
+  padding-left: 11.5mm;
+  margin-bottom: .9mm;
+  font-size: 8.2pt;
+  line-height: 1.35;
+}
+ul.star > li:last-child { margin-bottom: 0; }
+ul.star > li > .k {
+  position: absolute;
+  left: 0; top: 0;
+  width: 9.8mm;
+  font-size: 6.9pt;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  text-align: center;
+  border: .7pt solid var(--accent);
+  border-radius: 1.5px;
+  line-height: 1.72;
+}
+ul.star > li.res > .k { background: var(--accent); color: #fff; }
+ul.star > li b { color: var(--ink); font-weight: 700; }
+ul.star .num { font-variant-numeric: tabular-nums; }
+
+.deliver {
+  margin-top: 1.4mm;
+  padding: 1.2mm 2.2mm;
+  background: #f5f7f8;
+  font-size: 7.7pt;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.deliver b { color: var(--accent); font-weight: 700; margin-right: 1mm; }
+
+/* ---------- 간이 목록 (기타 산출물) ---------- */
+ul.plain { list-style: none; }
+ul.plain > li {
+  position: relative;
+  padding-left: 3mm;
+  margin-bottom: 1.1mm;
+  font-size: 8.1pt;
+  line-height: 1.35;
+}
+ul.plain > li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 1.5mm;
+  width: 1.3mm; height: 1.3mm;
+  background: var(--accent);
+}
+ul.plain > li:last-child { margin-bottom: 0; }
+ul.plain > li b { color: var(--ink); font-weight: 700; }
+
+/* ---------- 학력/수상/자격 ---------- */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 7mm; }
+.blk h4 {
+  font-size: 8.3pt;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 1.1mm;
+  padding-bottom: .7mm;
+  border-bottom: .7pt solid var(--line-soft);
+}
+table.rec { width: 100%; border-collapse: collapse; font-size: 8pt; }
+table.rec td { padding: .45mm 0; vertical-align: top; line-height: 1.4; }
+table.rec td.d {
+  width: 21mm;
+  color: var(--muted);
+  font-size: 7.7pt;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  padding-right: 2mm;
+}
+table.rec td.t b { color: var(--ink); font-weight: 700; }
+table.rec td.t span { color: var(--muted); font-size: 7.7pt; }
+
+/* ---------- [입력 필요] 플래그 ---------- */
+.flag {
+  background: var(--flag-bg);
+  border: .8pt dashed var(--flag-line);
+  color: #7a5c00;
+  font-size: 7.9pt;
+  font-weight: 700;
+  padding: 0 1.2mm;
+  border-radius: 1.5px;
+  white-space: nowrap;
+}
+
+.foot {
+  margin-top: 5mm;
+  padding-top: 2mm;
+  border-top: .7pt solid var(--line-soft);
+  font-size: 7.6pt;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ---------- 화면 전용 안내 배너 ---------- */
+.howto {
+  width: 210mm;
+  margin: 8mm auto -4mm;
+  padding: 3mm 5mm;
+  background: #1d2328;
+  color: #cfd6dc;
+  font-size: 8.6pt;
+  line-height: 1.6;
+  border-radius: 3px;
+}
+.howto b { color: #6fe3cf; }
+
+@media print {
+  body { background: #fff; }
+  .sheet { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
+  .howto { display: none; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="howto">
+  <b>PDF로 저장하기</b> — <b>Ctrl + P</b> (Mac: Cmd + P) → 대상 <b>「PDF로 저장」</b> → 용지 <b>A4</b> · 여백 <b>기본</b> · <b>「배경 그래픽」 체크</b> → 저장.
+  이 안내 박스는 인쇄물에 나오지 않습니다. 노란색 <span class="flag">[입력 필요]</span> 항목을 채운 뒤 출력하세요.
+</div>
+
+<div class="sheet">
+
+  <!-- ================= HEADER ================= -->
+  <header class="hdr">
+    <div class="hdr-l">
+      <div class="name">김태윤 <span>Kim Taeyun</span></div>
+      <div class="role">신입 게임 기획자 · 시스템 / 전투 / 데이터</div>
+    </div>
+    <div class="hdr-r">
+      <div><b>Mobile</b> 010-5750-7113</div>
+      <div><b>E-mail</b> 0518tune@gmail.com</div>
+      <div><b>Portfolio</b> <a href="https://taeyun-portfolio-kappa.vercel.app/">taeyun-portfolio-kappa.vercel.app</a></div>
+      <div><b>GitHub</b> <span class="flag">[입력 필요: GitHub 주소]</span></div>
+    </div>
+  </header>
+
+  <!-- ================= SUMMARY ================= -->
+  <section class="sec">
+    <h2>자기소개 <em>PROFESSIONAL SUMMARY</em></h2>
+    <p class="summary">
+      <strong>규칙을 수치로 확정하고, 그 수치를 직접 빌드에서 검증하는</strong> 신입 게임 기획자입니다.
+      UE5 팀 프로젝트 2건에서 부팀장으로 전투·인벤토리·보스 시스템을 설계해 최우수상(전체 1위)과 우수상(전체 2위)을 수상했고,
+      유니티 모바일 게임을 1인으로 기획·개발해 <strong>Google Play 정식 출시</strong>까지 완주했습니다.
+      상용 소울라이크의 협동 AI를 Behavior Tree와 데이터 테이블 단위로 해체한 <strong>총 127p 규모의 역기획 문서 3부작</strong>을 작성하며,
+      시스템을 재현 가능한 문서 규격으로 옮기는 훈련을 반복해 왔습니다.
+    </p>
+    <div class="kpi">
+      <div><b>UE5 팀 프로젝트 2건 · 2회 수상</b> <span>(2회 모두 부팀장)</span></div>
+      <div><b>모바일 게임 출시 1건</b> <span>(1인 완주)</span></div>
+      <div><b>역기획 문서 127p · 데이터 5시트</b></div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="sec">
+    <h2>보유 역량 &amp; 툴 <em>CORE SKILLS</em></h2>
+    <dl class="skills">
+      <dt>기획 분야</dt>
+      <dd><b>시스템 기획</b> (인벤토리·성장·강화·스킬 구조) · <b>전투 / 밸런스 설계</b> (공방 리듬, 자세 게이지, 텔레그래프, 스탯·비용 곡선) ·
+          <b>AI &amp; Behavior Tree 설계</b> (우선순위 트리, 블랙보드, 서비스·데코레이터) · <b>데이터 테이블 설계</b> (ID 정규화, 스트링 키, 효과 참조) · <b>콘텐츠·이벤트 기획</b> · <b>레벨 플로우 &amp; 페이싱</b> · <b>UI/UX 흐름 · HUD 규격</b> · <b>역기획 &amp; 기능 명세서</b></dd>
+
+      <dt>엔진 &amp; 구현</dt>
+      <dd><b>Unreal Engine 5</b> — Blueprint, Behavior Tree / Blackboard, Data Table, UMG, Niagara, Anim Blueprint · <b>Unity 6</b> — 모바일 빌드 · 스토어 출고 ·
+          <b>C++</b> 협업 이해 (프로그래머 커뮤니케이션 수준)</dd>
+
+      <dt>문서 &amp; 협업</dt>
+      <dd><b>Excel</b> (밸런스·데이터 테이블 설계) · <b>PowerPoint / Canva</b> (기획서·발표 자료) · <b>Figma</b> (UI 와이어프레임) · <b>Word</b> · <b>SVN</b> (형상 관리) ·
+          <b>생성형 AI · 바이브 코딩</b> (프로토타입 및 아트 리소스 제작)</dd>
+    </dl>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section class="sec">
+    <h2>핵심 프로젝트 <em>PROJECTS &amp; PORTFOLIO</em></h2>
+
+    <!-- ---- 1. 슬링펭귄 ---- -->
+    <article class="proj">
+      <div class="proj-top">
+        <h3>슬링펭귄 (SlingPenguin) <em>— 모바일 캐주얼 물리 아케이드</em></h3>
+        <div class="when"><span class="flag">[입력 필요: 개발 시작]</span> – 2026.08</div>
+      </div>
+      <div class="meta">
+        <span class="tag">Google Play 출시</span>
+        Unity 6 · Android · 슬링샷 물리 액션 <span class="sep">|</span> 타깃: 캐주얼 모바일 유저 <span class="sep">|</span> <b>1인 개발 (기획 · 개발 · 출시 전담)</b><br>산출물: 게임 기획서(웹 GDD) · Google Play 스토어 페이지
+      </div>
+      <ul class="star">
+        <li><span class="k">TASK</span>기획서로만 남는 프로토타입의 한계를 넘어, <b>기획 의도가 실제 유저에게 닿는지 스토어 환경에서 검증</b>하는 것을 개인 목표로 설정했습니다.</li>
+        <li><span class="k">ACTION</span>당기기–조준–발사 3단계 입력을 <b>단일 터치 드래그로 통합</b>하고 승패 조건을 '아기 펭귄 구출' 하나로 좁혀 학습 비용을 최소화했으며, 게·북극곰 <b>실시간 기믹</b>과 <b>햅틱 피드백</b>으로 반복 플레이에 변수를 부여했습니다.</li>
+        <li><span class="k">ACTION</span>생성형 AI·바이브 코딩으로 아트 리소스 제작과 구현을 병행해, 1인 체제에서 <b>기획 → 빌드 → 수정 사이클</b>을 단기간에 반복하는 작업 흐름을 만들었습니다.</li>
+        <li class="res"><span class="k">RESULT</span><b>2026.08.08 Google Play 정식 출시.</b> 빌드 제출 · 심사 승인 · 라이브 테스팅까지 모바일 서비스 라이프사이클 전 구간을 경험했습니다.</li>
+      </ul>
+    </article>
+
+    <!-- ---- 2. 애쉬 제로 ---- -->
+    <article class="proj">
+      <div class="proj-top">
+        <h3>애쉬 제로 (ASH ZERO) <em>— PvE 익스트랙션 슈팅 소울라이크</em></h3>
+        <div class="when">2025 <span class="flag">[입력 필요: 정확한 기간]</span></div>
+      </div>
+      <div class="meta">
+        <span class="tag">최우수상 · 전체 1위</span>
+        Unreal Engine 5 · C++ · PC <span class="sep">|</span> 타깃: 익스트랙션 선호 &amp; 소울라이크 입문층 <span class="sep">|</span> <b>부팀장 / 시스템 · 보스 기획</b> (팀 14인 — 기획 5 · 프로그래밍 3 · 그래픽 6) <span class="sep">|</span> KOG · 인하대학교 미래인재개발원 지원
+      </div>
+      <ul class="star">
+        <li><span class="k">TASK</span>익스트랙션 장르의 <b>낮은 긴장감·성장 동기 부족</b>과 소울라이크의 <b>높은 진입장벽</b>을 동시에 해소할 콘셉트가 필요했습니다.</li>
+        <li><span class="k">ACTION</span><b>'PvE 익스트랙션 슈팅 소울라이크' 콘셉트를 제안해 팀 채택</b>. PvP를 제거해 진입장벽을 낮추는 대신 <b>어려운 보스</b>를 명확한 목표로 제시하여, 하이리스크–하이리턴 파밍을 성장 동기와 직접 연결했습니다.</li>
+        <li><span class="k">ACTION</span><b>그리드 인벤토리 시스템 설계 전담</b> — 아이템·장비 데이터 구조와 획득 → 정비 → 출격으로 이어지는 UI 흐름을 정의하고, 파밍 리스크를 '칸 관리'라는 조작 부담으로 치환해 탈출 판단을 유저의 선택으로 만들었습니다.</li>
+        <li><span class="k">ACTION</span><b>보스 몬스터 기획 전담</b> — 페이즈 구성, 패턴·스킬 세트, 텔레그래프 기반 공방 리듬과 난이도 밸런싱을 설계했으며, 대표 사례인 보스 'Zephyros'는 설계 의도와 패턴 분석을 별도 문서로 정리했습니다. 부팀장으로서 기획 5인의 <b>산출물 규격과 일정을 조율</b>해 파트 간 병목을 예방했습니다.</li>
+        <li class="res"><span class="k">RESULT</span><b>2025 RETURN ALIVE 프로젝트 최우수상 (참여 프로젝트 전체 1위)</b> 수상.</li>
+      </ul>
+      <div class="deliver"><b>산출물</b> 통합 기획서(웹 GDD) · Zephyros 보스 분석서 · 인벤토리 명세 · 발표 자료 71p</div>
+    </article>
+
+    <!-- ---- 3. 여우의 복수 ---- -->
+    <article class="proj">
+      <div class="proj-top">
+        <h3>여우의 복수 (Revenge of the Fox) <em>— 러닝 액션 × 소울라이크</em></h3>
+        <div class="when">2024.03 – 2024.12 (10개월)</div>
+      </div>
+      <div class="meta">
+        <span class="tag">우수상 · 전체 2위</span>
+        Unreal Engine 5 · Blueprint · PC <span class="sep">|</span> 타깃: 액션·다크판타지 선호 20–30대 / 소울라이크 입문층 <span class="sep">|</span>
+        3인 팀 중 <b>부팀장 / 전투 시스템 · 스킬 · 적 AI</b> <span class="sep">|</span> 성결대학교 컴퓨터공학과 졸업작품
+      </div>
+      <ul class="star">
+        <li><span class="k">TASK</span>고속 질주와 정적인 소울라이크 전투를 한 화면에 담아야 했으나, <b>두 모드가 요구하는 카메라·이동 파라미터가 정반대</b>여서 전환 시 멀미가 발생하는 것이 최대 난관이었습니다.</li>
+        <li><span class="k">ACTION</span>질주·전투 <b>2개 카메라 프로파일</b>(암 길이 <span class="num">420↔300uu</span>, FOV <span class="num">100°↔90°</span>, 추적 지연 <span class="num">0.25↔0.08s</span>)을 규격화하고 <b><span class="num">0.4</span>초 이징 보간 구조</b>로 전환해 멀미를 해소하면서 속도감과 타격감을 모두 확보했습니다.</li>
+        <li><span class="k">ACTION</span>가드를 배제한 <b>회피 중심 전투 규칙을 수치로 확정</b> — 회피 무적 <span class="num">0.30s</span>·이동 <span class="num">420uu</span>, 저스트 회피 판정 <span class="num">0.12s</span>, 자세 게이지 <span class="num">100</span> 기준 약공격 <span class="num">−6</span> / 강공격 <span class="num">−14</span> / 저스트 회피 <span class="num">−26</span>, 붕괴 시 치명타 <span class="num">×2.5</span>. 적 <span class="num">3</span>종 스펙 테이블과 보스 <span class="num">3</span>페이즈(텔레그래프 <span class="num">1.0 → 0.7 → 0.5s</span>)를 설계하고 <b>Behavior Tree + 블랙보드</b>로 인지 → 접근 → 텔레그래프 → 공격 → 후퇴 <span class="num">5</span>단계를 구현했습니다.</li>
+        <li><span class="k">ACTION</span>추격을 장르가 아닌 <b>상황</b>으로 설계 — 추격자 속도 <span class="num">910uu/s</span>(플레이어 질주 <span class="num">950</span>)에 <b>±<span class="num">12</span>% 고무줄 보정</b>과 최소 유지 거리 <span class="num">300uu</span>로 항상 물릴 듯한 거리를 유지하고, 실패는 <span class="num">3</span>초 리스폰·재화 손실 없음으로 <b>조작 실수와 전투 패배를 구분해 처벌</b>했습니다.</li>
+        <li><span class="k">ACTION</span>테스트에서 <b>'초록 배경에 검은 적이 묻힌다'</b>는 반복 문제를 확인하고, 개발 6개월 차에 여름 폐허를 <b>명도 85% 이상의 겨울 설원으로 전면 교체</b>했습니다. 아트를 게임플레이 가독성에 종속시킨 판단이며, 안개로 원경을 덮어 3인 팀의 에셋 비용까지 줄였습니다.</li>
+        <li class="res"><span class="k">RESULT</span><b>컴퓨터공학 설계 프로젝트 경진대회 우수상(졸업작품 전체 2위)</b> 수상. 스테이지 1 <b>수직 슬라이스(<span class="num">12–15</span>분) 완주 빌드</b>를 산출했습니다.</li>
+      </ul>
+      <div class="deliver"><b>산출물</b> 게임 기획서 v2.0 39p · 적/보스 스펙 테이블 · 성장 비용 곡선(지수 <span class="num">1.35^n</span>) · HUD 규격 · UI 개선 백로그 7건</div>
+    </article>
+
+    <!-- ---- 4. 코드베인 역기획 ---- -->
+    <article class="proj">
+      <div class="proj-top">
+        <h3>코드베인 동행자 시스템 역기획 <em>— 협동 AI 분석 · BT 설계 · 데이터 테이블</em></h3>
+        <div class="when">~ 2026.04</div>
+      </div>
+      <div class="meta">
+        <span class="tag">개인 프로젝트</span>
+        분석 대상: 『Code Vein』(반다이 남코 / 소울라이크 액션 RPG) <span class="sep">|</span>
+        <b>문서 3부작 단독 작성 — 분석서 103p · BT 설계서 24p · 데이터 테이블 5시트</b>
+      </div>
+      <ul class="star">
+        <li><span class="k">TASK</span>소울라이크의 진입장벽을 낮추는 <b>협동 AI가 어떤 규칙으로 동작하는지</b> 구조적으로 이해하고, 재현 가능한 설계 문서로 옮기는 것을 과제로 잡았습니다.</li>
+        <li><span class="k">ACTION</span>동행자 콘텐츠를 <b>파티 편성 · 호감도 · 가이드 · 추종 · 전투 5개 시스템으로 분해</b>하고, 각 규칙에 '플레이 영향'을 1:1 대응시켜 기능이 유저 체감으로 전환되는 경로를 명세했습니다.</li>
+        <li><span class="k">ACTION</span><b>Behavior Tree 재설계</b> — Root Selector 아래 <b>생명 지원 &gt; 동행 &gt; 전투</b> 3계층 우선순위와 Abort 규칙, 블랙보드 <span class="num">8</span>키 · Service <span class="num">2</span>종(Tick <span class="num">0.2s</span>)을 명세했습니다. 추종 거리 임계 <span class="num">200/700uu</span>, 스태미나 <span class="num">50</span> 미만 시 공격 중단 후 Strafe 전환 등 <b>판단 조건을 전부 수치로 규격화</b>했습니다.</li>
+        <li><span class="k">ACTION</span>동행자 <span class="num">6</span>종을 스태미나 임계(<span class="num">30–75</span>) · 접근 속도(<span class="num">500–850</span>) · 스킬 사거리 · 발동 확률(<span class="num">35–65</span>%) <span class="num">5</span>개 파라미터로 차등화하여 <b>하나의 BT로 캐릭터별 개성을 만드는 모듈러 서브트리 구조</b>를 설계, 신규 동행자 추가 시 전투 서브트리만 교체하도록 확장 비용을 낮췄습니다.</li>
+        <li><span class="k">ACTION</span><b>데이터 테이블 5종 구축</b> — 동행자·스킬·스킬효과 테이블을 ID / 스트링 키 / 효과 ID 참조 구조로 정규화하고, 대사 테이블 <span class="num">60</span>여 행(TriggerTag · Priority · Cooldown)과 기호품 호감도 매트릭스(<span class="num">37</span>품목 × <span class="num">9</span>캐릭터)를 설계해 기획 데이터와 로직을 분리했습니다.</li>
+        <li class="res"><span class="k">RESULT</span>유저 불만 <span class="num">4</span>건(캐릭터 선택 편중 · 전술 제어 부재 · 커스터마이징 부재 · 호감도–전투 단절)을 <b>원인 → 현상 → 결과</b> 프로세스로 진단하고, 각각에 개편안과 기대 효과까지 제시했습니다. (예: 무적 가드 <span class="num">100</span>% → <span class="num">75–80</span>% 하향 + 포지션별 특화 버프로 픽 편중 해소)</li>
+      </ul>
+      <div class="deliver"><b>산출물</b> 동행자 디자인 분석서 103p · BT 설계서 24p · 데이터 테이블 5시트(xlsx)</div>
+    </article>
+  </section>
+
+  <!-- ================= 기타 기획 산출물 ================= -->
+  <section class="sec">
+    <h2>기타 기획 산출물 <em>ADDITIONAL DESIGN DOCUMENTS</em></h2>
+    <ul class="plain">
+      <li><b>마비노기 모바일 — 「키아 던전의 잃어버린 남매」 할로윈 이벤트 기획서 (62p)</b> · 1P(엘리스)/2P(에릭)를 <b>서로 다른 공간에 분리 배치해 소통을 강제하는 비대칭 협동 퍼즐</b> 구조 설계. 5구역 맵 플로우 · 4파트 시나리오 · 퀘스트별 보상 테이블과 선정 근거를 문서화하고, GameRefinery 아키타입 8종으로 타깃을 정의했습니다.</li>
+      <li><b>ProjectJOB — 신규 프로젝트 제안용 플레이어블 프로토타입</b> · 제안 기획서를 문서가 아닌 <b>동작하는 프로토타입으로 검증</b>한 내러티브 라이프 시뮬레이션. 직업·에피소드·선택지와 카메라·동선을 <b>데이터로 다루는 큐시트 연출 시스템</b>을 구축했습니다.</li>
+      <li><b>기획 프로토타입 5종</b> · 게이미피케이션(자폐 아동 치료 보조) · 우마무스메 튜토리얼 개선안 · 겟앰프드 신규 캐릭터 제안서 · 웹툰 IP 모바일 게임 제안서 · 인벤토리 UI 기획.</li>
+    </ul>
+  </section>
+
+  <!-- ================= EDUCATION & ACTIVITIES ================= -->
+  <section class="sec">
+    <h2>학력 · 수상 · 자격 · 활동 <em>EDUCATION &amp; ACTIVITIES</em></h2>
+
+    <div class="blk" style="margin-bottom:2.5mm;">
+      <table class="rec">
+        <tr>
+          <td class="d"><span class="flag">[입학–졸업]</span></td>
+          <td class="t"><b>성결대학교 컴퓨터공학과</b> — 학사 졸업 <span>· 학점 3.69 / 4.5</span></td>
+        </tr>
+        <tr>
+          <td class="d">2025</td>
+          <td class="t"><b>인하대학교 미래인재개발원 · KOG 게임 개발 전문 과정</b> <span>· UE5 기반 팀 프로젝트 「ASH ZERO」 수행</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="two">
+      <div class="blk">
+        <h4>수상 경력</h4>
+        <table class="rec">
+          <tr>
+            <td class="d">2025</td>
+            <td class="t"><b>RETURN ALIVE 프로젝트 최우수상</b><br><span>전체 1위 · 인하대 미래인재개발원 / Team Mario Party</span></td>
+          </tr>
+          <tr>
+            <td class="d">4학년 2학기</td>
+            <td class="t"><b>설계 프로젝트 경진대회 (게임 개발) 우수상</b><br><span>전체 2위 · 성결대 / 팀 언리얼너무어렵조</span></td>
+          </tr>
+          <tr>
+            <td class="d">4학년 1학기</td>
+            <td class="t"><b>설계 프로젝트 경진대회 (게임 기획) 장려상</b><br><span>3위 · 성결대 / 팀 언리얼너무어렵조</span></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="blk">
+        <h4>자격증 &amp; 대외 활동</h4>
+        <table class="rec">
+          <tr>
+            <td class="d"><span class="flag">[취득 연월]</span></td>
+            <td class="t"><b>Coding Specialist Professional 2급</b><span>(Python)</span> · <b>빅데이터 전문가</b> · <b>코딩지도사 1급</b> · <b>운전면허 1종 보통</b></td>
+          </tr>
+          <tr>
+            <td class="d">대학 재학</td>
+            <td class="t"><b>공과대학 동아리 창설 및 회장</b> · 학생 자치법정 판사 · 기숙사 조교</td>
+          </tr>
+          <tr>
+            <td class="d"><span class="flag">[복무 기간]</span></td>
+            <td class="t"><b>대한민국 육군 만기 전역</b></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
