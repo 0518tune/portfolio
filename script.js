@@ -124,20 +124,71 @@ document.addEventListener('DOMContentLoaded', () => {
         window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
     }
 
-    // 스크롤 진행바
+    // ── 스크롤에 반응하는 것들을 rAF 한 번에 묶어 처리한다 ──
+    // (진행바 · GNB 축약 · 히어로 패럴랙스 · 맨 위로 버튼)
     const progress = document.getElementById('scroll-progress');
-    if (progress) {
-        let ticking = false;
-        const update = () => {
-            const max = document.documentElement.scrollHeight - window.innerHeight;
-            const ratio = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+    const progressHead = document.getElementById('scroll-progress-head');
+    const heroInner = document.getElementById('hero-inner');
+    const heroHint = document.getElementById('hero-scroll-hint');
+    const backToTop = document.getElementById('back-to-top');
+
+    let ticking = false;
+    let navScrolled = false;
+
+    function onScroll() {
+        const y = window.scrollY;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = max > 0 ? Math.min(y / max, 1) : 0;
+
+        if (progress) {
             progress.style.transform = `scaleX(${ratio})`;
-            ticking = false;
-        };
-        window.addEventListener('scroll', () => {
-            if (!ticking) { ticking = true; requestAnimationFrame(update); }
-        }, { passive: true });
-        update();
+            progress.classList.toggle('is-active', ratio > 0.002);
+            // 막대가 scaleX 로 눌리는 만큼 헤드를 역보정해 동그란 모양을 유지한다
+            if (progressHead && ratio > 0) {
+                progressHead.style.setProperty('--head-fix', String(1 / Math.max(ratio, 0.02)));
+            }
+        }
+
+        // GNB 축약 — 상태가 바뀔 때만 클래스를 건드린다
+        const shouldShrink = y > 40;
+        if (nav && shouldShrink !== navScrolled) {
+            navScrolled = shouldShrink;
+            nav.classList.toggle('is-scrolled', shouldShrink);
+            syncNavHeight();
+        }
+
+        // 히어로 패럴랙스 — 첫 화면을 지나면 계산을 멈춘다
+        if (heroInner && !reduceMotion && y < window.innerHeight * 1.1) {
+            heroInner.style.transform = `translate3d(0, ${y * 0.28}px, 0)`;
+            heroInner.style.opacity = String(Math.max(1 - y / (window.innerHeight * 0.72), 0));
+        }
+        if (heroHint) heroHint.style.opacity = String(Math.max(1 - y / 240, 0));
+
+        // 맨 위로 버튼
+        if (backToTop) {
+            const show = y > window.innerHeight * 0.9;
+            if (show && backToTop.hidden) {
+                backToTop.hidden = false;
+                requestAnimationFrame(() => backToTop.classList.add('is-visible'));
+            } else if (!show && !backToTop.hidden) {
+                backToTop.classList.remove('is-visible');
+                setTimeout(() => { if (!backToTop.classList.contains('is-visible')) backToTop.hidden = true; }, 320);
+            }
+        }
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+    }, { passive: true });
+    window.addEventListener('resize', () => { ticking = false; onScroll(); }, { passive: true });
+    onScroll();
+
+    if (backToTop) {
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+        });
     }
 
     // 현재 보고 있는 섹션을 GNB 에 표시
@@ -160,10 +211,11 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ── 4. 스크롤 등장 연출 ─────────────────────────────────────────────── */
 
     const revealEls = document.querySelectorAll('[data-reveal]');
-    if (!revealEls.length) {
-        /* noop */
-    } else if (reduceMotion || !('IntersectionObserver' in window)) {
-        revealEls.forEach((el) => el.classList.add('is-revealed'));
+    const sectionTitles = document.querySelectorAll('.section-title');
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        revealEls.forEach((el) => el.classList.add('is-revealed', 'reveal-done'));
+        sectionTitles.forEach((el) => el.classList.add('title-in'));
     } else {
         // 같은 부모 안에서 순서대로 살짝씩 늦게 등장시켜 카드가 흐르듯 나타나게 한다
         const seen = new Map();
@@ -171,16 +223,36 @@ document.addEventListener('DOMContentLoaded', () => {
             const key = el.parentElement;
             const idx = seen.get(key) || 0;
             seen.set(key, idx + 1);
-            el.style.setProperty('--reveal-delay', `${Math.min(idx, 5) * 70}ms`);
+            el.style.setProperty('--reveal-delay', `${Math.min(idx, 6) * 90}ms`);
         });
+
         const io = new IntersectionObserver((entries, obs) => {
             entries.forEach((e) => {
                 if (!e.isIntersecting) return;
-                e.target.classList.add('is-revealed');
-                obs.unobserve(e.target);
+                const el = e.target;
+                el.classList.add('is-revealed');
+                obs.unobserve(el);
+                // 연출이 끝나면 blur 필터를 걷어 내 텍스트 선명도를 되돌린다
+                el.addEventListener('transitionend', function done(ev) {
+                    if (ev.target !== el || ev.propertyName !== 'filter') return;
+                    el.removeEventListener('transitionend', done);
+                    el.classList.add('reveal-done');
+                });
+                // transitionend 가 안 오는 경우(탭 전환 등)를 대비한 보험
+                setTimeout(() => el.classList.add('reveal-done'), 1800);
             });
         }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
         revealEls.forEach((el) => io.observe(el));
+
+        // 섹션 타이틀 밑줄을 따로 관찰한다 (헤더 묶음 밖에 있는 타이틀도 있어서)
+        const titleIo = new IntersectionObserver((entries, obs) => {
+            entries.forEach((e) => {
+                if (!e.isIntersecting) return;
+                e.target.classList.add('title-in');
+                obs.unobserve(e.target);
+            });
+        }, { threshold: 0.6 });
+        sectionTitles.forEach((el) => titleIo.observe(el));
     }
 
 

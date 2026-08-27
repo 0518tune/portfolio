@@ -195,14 +195,31 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 /* ── 스크롤 진행바 ─────────────────────────────────────────── */
-#scroll-progress {
+#scroll-progress-track {
     position: fixed; top: 0; left: 0; z-index: 60;
-    height: 2px; width: 100%;
+    width: 100%; height: 4px;
+    background: rgba(255, 255, 255, 0.07);
+}
+#scroll-progress {
+    position: relative;
+    height: 100%; width: 100%;
     transform: scaleX(0); transform-origin: 0 50%;
-    background: linear-gradient(90deg, #2efcb7, #00f0ff);
-    box-shadow: 0 0 10px rgba(46, 252, 183, 0.6);
+    background: linear-gradient(90deg, #2efcb7 0%, #22e6d0 45%, #00f0ff 100%);
+    box-shadow: 0 0 12px rgba(46, 252, 183, 0.75), 0 0 26px rgba(0, 240, 255, 0.45);
     will-change: transform;
 }
+/* 진행 지점을 짚어 주는 발광 헤드. 막대가 scaleX 로 눌리므로 역보정해 원형을 유지한다 */
+#scroll-progress-head {
+    position: absolute; right: 0; top: 50%;
+    width: 10px; height: 10px; margin-right: -5px;
+    border-radius: 50%;
+    background: #d9fff4;
+    box-shadow: 0 0 10px #2efcb7, 0 0 22px rgba(0, 240, 255, 0.9);
+    transform: translateY(-50%) scaleX(var(--head-fix, 1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+#scroll-progress.is-active #scroll-progress-head { opacity: 1; }
 
 /* ── GNB 링크 / 현재 섹션 하이라이트 ───────────────────────── */
 .nav-link { position: relative; padding-bottom: 3px; }
@@ -286,13 +303,28 @@ body.menu-open { overflow: hidden; }
 /* ── 스크롤 등장 연출 ──────────────────────────────────────── */
 [data-reveal] {
     opacity: 0;
-    transform: translateY(26px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translate3d(0, 30px, 0);
+    filter: blur(7px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
     transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
+    will-change: opacity, transform, filter;
 }
-[data-reveal].is-revealed { opacity: 1; transform: none; will-change: auto; }
+/* 요소 성격에 따라 들어오는 방향을 달리해 화면이 한 방향으로만 밀리지 않게 한다 */
+[data-reveal="left"]  { transform: translate3d(-42px, 0, 0); }
+[data-reveal="right"] { transform: translate3d(42px, 0, 0); }
+[data-reveal="scale"] { transform: translate3d(0, 34px, 0) scale(0.955); }
+
+[data-reveal].is-revealed { opacity: 1; transform: none; filter: blur(0); }
+/* 연출이 끝나면 filter 를 완전히 걷어 낸다. blur(0) 이 남아 있으면 스태킹 컨텍스트가
+   유지되고 텍스트 서브픽셀 안티에일리어싱이 꺼져 글자가 미세하게 흐려진다. */
+[data-reveal].reveal-done { filter: none; will-change: auto; }
+
+@media (max-width: 767px) {
+    /* 좁은 화면에서 가로 이동은 가로 스크롤을 유발할 수 있어 세로 등장으로 통일 */
+    [data-reveal="left"], [data-reveal="right"] { transform: translate3d(0, 26px, 0); }
+}
 
 /* ── 공통 오버레이 (모달 · 라이트박스) ─────────────────────── */
 .overlay {
@@ -460,11 +492,111 @@ body.menu-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
     /* Tailwind 의 .scroll-smooth(클래스, 특이도 0,1,0)를 이기려면 선택자를 더 구체적으로 써야 한다 */
     html.scroll-smooth { scroll-behavior: auto; }
-    [data-reveal] { opacity: 1; transform: none; transition: none; }
+    [data-reveal] { opacity: 1; transform: none; filter: none; transition: none; }
+    #hero-inner { transform: none !important; opacity: 1 !important; }
+    .section-title::after { transform: scaleX(1); transition: none; }
     #mouse-trailer { display: none; }
     .card-glow-effect:hover .card-img-dim { transform: none; }
     .btn-sm:hover { transform: none; }
     .animate-bounce, .animate-pulse { animation: none; }
     .overlay-backdrop, .dl-card, .lb-stage, .toast, #mobile-menu.is-open { animation: none; }
     #carousel-track { transition: none; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   스크롤 연출 2차 개선 — 타이틀 밑줄 · GNB 축약 · 히어로 패럴랙스
+   · 맨 위로 버튼
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── 섹션 타이틀: 화면에 들어올 때 밑줄이 좌에서 우로 그어진다 ── */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+.section-title::after {
+    content: "";
+    position: absolute; left: 0; bottom: 0;
+    width: 100%; height: 3px; border-radius: 2px;
+    background: linear-gradient(90deg, #2efcb7, #00f0ff);
+    box-shadow: 0 0 12px rgba(46, 252, 183, 0.45);
+    transform: scaleX(0); transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+}
+.section-title.title-in::after { transform: scaleX(1); }
+/* 가운데 정렬된 섹션에서는 밑줄도 가운데에서 벌어지게 */
+.text-center .section-title::after { transform-origin: center; }
+
+/* ── GNB: 스크롤하면 살짝 납작해지고 배경이 진해진다 ── */
+nav {
+    transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+nav.is-scrolled {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    background-color: rgba(11, 13, 14, 0.97);
+    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.55);
+}
+
+/* ── 히어로: 스크롤에 따라 살짝 밀려 올라가며 사라진다 ── */
+#hero-inner {
+    will-change: transform, opacity;
+}
+#hero-scroll-hint {
+    transition: opacity 0.35s ease;
+}
+
+/* ── 맨 위로 버튼 ── */
+#back-to-top {
+    position: fixed; right: 22px; bottom: 22px; z-index: 70;
+    display: flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px; border-radius: 999px;
+    background: rgba(18, 20, 22, 0.9);
+    color: #2efcb7;
+    border: 1px solid rgba(46, 252, 183, 0.35);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0; transform: translateY(14px) scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.2s ease, border-color 0.2s ease;
+}
+#back-to-top[hidden] { display: none; }
+#back-to-top.is-visible { opacity: 1; transform: none; }
+#back-to-top:hover {
+    background: rgba(46, 252, 183, 0.14);
+    border-color: #2efcb7;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 22px rgba(46, 252, 183, 0.35);
+}
+#back-to-top svg { width: 20px; height: 20px; }
+/* 토스트가 뜨는 자리와 겹치지 않게 좁은 화면에서는 조금 올려 준다 */
+@media (max-width: 640px) {
+    #back-to-top { right: 16px; bottom: 16px; width: 44px; height: 44px; }
+}
+
+/* ── 카드 호버를 조금 더 또렷하게 (등장 연출과 톤을 맞춘다) ── */
+.card-glow-effect {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (hover: hover) and (pointer: fine) {
+    .card-glow-effect:hover { transform: translateY(-4px); }
+}
+
+/* ── 모션 최소화 ── */
+@media (prefers-reduced-motion: reduce) {
+    nav, #back-to-top, .card-glow-effect, #hero-scroll-hint { transition: none; }
+    .card-glow-effect:hover { transform: none; }
+    #back-to-top { opacity: 1; transform: none; }
+}
+
+
+/* ── 고정 UI 와 페이지 콘텐츠가 겹치지 않게 여유 확보 ── */
+/* 맨 위로 버튼(우하단 고정)이 푸터의 방문자 수를 가리지 않도록 아래 여백을 준다 */
+#site-footer { padding-bottom: 5.5rem; }
+
+@media (max-width: 640px) {
+    /* 좁은 화면에서는 토스트 폭이 버튼과 겹치므로 토스트를 버튼 위로 띄운다 */
+    #toast-wrap { bottom: 74px; }
 }
