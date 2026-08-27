@@ -27,3 +27,6 @@ public/
 
 # Playwright MCP 산출물 (검증용 스크린샷)
 .playwright-mcp/
+
+# 수정본 원본 드롭 폴더 (내용은 files/수정본/ 에 반영되므로 저장소에는 올리지 않음)
+files/수정본/수정본.v2/
