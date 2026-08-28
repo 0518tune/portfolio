@@ -300,30 +300,35 @@ body.menu-open { overflow: hidden; }
 #carousel-track { touch-action: pan-y; }
 .carousel-dot:focus-visible { outline: 2px solid #2efcb7; outline-offset: 3px; }
 
-/* ── 스크롤 등장 연출 ──────────────────────────────────────── */
+/* ── 스크롤 등장 연출 ──────────────────────────────────────────
+   blur 로 흐렸다가 선명해지는 방식은 읽으려는 순간 글자가 뭉개져 읽기를 방해한다.
+   그래서 흐림은 쓰지 않고 "아래에서 가볍게 올라와 자리를 잡는" 움직임만 남긴다.
+   글자는 처음부터 끝까지 100% 선명하고, 눈은 위치 변화만 따라간다. */
 [data-reveal] {
     opacity: 0;
-    transform: translate3d(0, 30px, 0);
-    filter: blur(7px);
-    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-                filter 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translate3d(0, 24px, 0);
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.66s cubic-bezier(0.22, 1, 0.36, 1);
     transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform, filter;
+    will-change: opacity, transform;
 }
-/* 요소 성격에 따라 들어오는 방향을 달리해 화면이 한 방향으로만 밀리지 않게 한다 */
-[data-reveal="left"]  { transform: translate3d(-42px, 0, 0); }
-[data-reveal="right"] { transform: translate3d(42px, 0, 0); }
-[data-reveal="scale"] { transform: translate3d(0, 34px, 0) scale(0.955); }
+/* 가로로 밀려 들어오는 연출은 오른쪽 요소가 뷰포트 밖으로 나가 가로 스크롤바를 만들고,
+   시선도 좌우로 흔들려 읽기 흐름을 끊는다. 방향은 위아래 하나로 통일하고 거리·타이밍으로만
+   변화를 준다. */
+[data-reveal="left"]  { transform: translate3d(0, 18px, 0); }
+[data-reveal="right"] { transform: translate3d(0, 30px, 0); }
+/* 카드는 아주 살짝만 커지며 자리를 잡는다 (0.98 이상이어야 글자 리샘플링이 눈에 띄지 않는다) */
+[data-reveal="scale"] { transform: translate3d(0, 28px, 0) scale(0.982); }
 
-[data-reveal].is-revealed { opacity: 1; transform: none; filter: blur(0); }
-/* 연출이 끝나면 filter 를 완전히 걷어 낸다. blur(0) 이 남아 있으면 스태킹 컨텍스트가
-   유지되고 텍스트 서브픽셀 안티에일리어싱이 꺼져 글자가 미세하게 흐려진다. */
-[data-reveal].reveal-done { filter: none; will-change: auto; }
+[data-reveal].is-revealed { opacity: 1; transform: none; }
+/* 연출이 끝나면 will-change 를 걷어 내 합성 레이어를 반납한다.
+   (레이어가 남아 있으면 텍스트 서브픽셀 안티에일리어싱이 꺼져 글자가 미세하게 흐려진다) */
+[data-reveal].reveal-done { will-change: auto; }
 
 @media (max-width: 767px) {
-    /* 좁은 화면에서 가로 이동은 가로 스크롤을 유발할 수 있어 세로 등장으로 통일 */
-    [data-reveal="left"], [data-reveal="right"] { transform: translate3d(0, 26px, 0); }
+    /* 모바일은 한 줄씩 지나가므로 이동 거리를 줄이고 확대도 뺀다 */
+    [data-reveal], [data-reveal="left"], [data-reveal="right"] { transform: translate3d(0, 18px, 0); }
+    [data-reveal="scale"] { transform: translate3d(0, 18px, 0); }
 }
 
 /* ── 공통 오버레이 (모달 · 라이트박스) ─────────────────────── */
@@ -492,7 +497,7 @@ body.menu-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
     /* Tailwind 의 .scroll-smooth(클래스, 특이도 0,1,0)를 이기려면 선택자를 더 구체적으로 써야 한다 */
     html.scroll-smooth { scroll-behavior: auto; }
-    [data-reveal] { opacity: 1; transform: none; filter: none; transition: none; }
+    [data-reveal] { opacity: 1; transform: none; transition: none; }
     #hero-inner { transform: none !important; opacity: 1 !important; }
     .section-title::after { transform: scaleX(1); transition: none; }
     #mouse-trailer { display: none; }

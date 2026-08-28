@@ -232,14 +232,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const el = e.target;
                 el.classList.add('is-revealed');
                 obs.unobserve(el);
-                // 연출이 끝나면 blur 필터를 걷어 내 텍스트 선명도를 되돌린다
+                // 연출이 끝나면 will-change 를 걷어 내 합성 레이어를 반납한다 (텍스트 선명도 복구)
                 el.addEventListener('transitionend', function done(ev) {
-                    if (ev.target !== el || ev.propertyName !== 'filter') return;
+                    if (ev.target !== el || ev.propertyName !== 'transform') return;
                     el.removeEventListener('transitionend', done);
                     el.classList.add('reveal-done');
                 });
                 // transitionend 가 안 오는 경우(탭 전환 등)를 대비한 보험
-                setTimeout(() => el.classList.add('reveal-done'), 1800);
+                setTimeout(() => el.classList.add('reveal-done'), 1600);
             });
         }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
         revealEls.forEach((el) => io.observe(el));
