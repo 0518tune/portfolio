@@ -68,13 +68,11 @@
             <svg class="w-5 h-5 text-[#2efcb7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="3"></rect><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"></path></svg>
             게임기획자 김태윤
         </a>
-        <div class="hidden md:flex gap-4 lg:gap-6 text-xs font-bold tracking-widest text-slate-400 font-display">
+        <div class="hidden md:flex gap-8 text-xs font-bold tracking-widest text-slate-400 font-display">
             <a href="#home" data-nav="home" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">HOME</a>
             <a href="#career" data-nav="career" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">CAREER</a>
             <a href="#about" data-nav="about" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">ABOUT</a>
-            <a href="#process" data-nav="process" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">PROCESS</a>
             <a href="#prototypes" data-nav="prototypes" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">PROTOTYPES</a>
-            <a href="#standard" data-nav="standard" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">STANDARD</a>
             <a href="#portfolio" data-nav="portfolio" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">PORTFOLIO</a>
             <a href="#projects" data-nav="projects" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">PROJECTS</a>
             <a href="#skills" data-nav="skills" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">SKILLS</a>
@@ -92,9 +90,7 @@
             <a href="#home" data-nav="home" class="nav-link-mobile">HOME</a>
             <a href="#career" data-nav="career" class="nav-link-mobile">CAREER</a>
             <a href="#about" data-nav="about" class="nav-link-mobile">ABOUT</a>
-            <a href="#process" data-nav="process" class="nav-link-mobile">PROCESS</a>
             <a href="#prototypes" data-nav="prototypes" class="nav-link-mobile">PROTOTYPES</a>
-            <a href="#standard" data-nav="standard" class="nav-link-mobile">STANDARD</a>
             <a href="#portfolio" data-nav="portfolio" class="nav-link-mobile">PORTFOLIO</a>
             <a href="#projects" data-nav="projects" class="nav-link-mobile">PROJECTS</a>
             <a href="#skills" data-nav="skills" class="nav-link-mobile">SKILLS</a>
@@ -249,81 +245,6 @@
         </div>
     </section>
 
-
-    <section id="process" class="py-32 max-w-7xl mx-auto px-6">
-        <div data-reveal class="text-center mb-14">
-            <span class="text-xs font-extrabold uppercase tracking-widest text-[#2efcb7] font-display block mb-2">PROCESS</span>
-            <h2 class="text-4xl font-black text-white font-display section-title">직접 플레이하며 고친 것</h2>
-            <p class="mt-6 max-w-2xl mx-auto text-slate-400 text-[15px] font-medium leading-relaxed break-keep">
-                팀 프로젝트에서 플레이 중 발견한 문제와 바꾼 값입니다.
-            </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-24">
-            <div data-reveal class="flex flex-col p-6 md:p-7 bg-[#121416] border border-white/5 rounded-2xl shadow-lg hover:border-[#2efcb7]/30 transition-colors duration-300">
-                <span class="self-start text-[11.5px] font-extrabold text-slate-400 bg-white/5 border border-white/10 rounded-md px-2.5 py-1 mb-4">여우의 복수</span>
-                <p class="text-white text-[16px] font-bold leading-snug break-keep mb-1.5">팀 테스트 때마다 "풀숲에서 늑대를 놓친다"는 말이 나옴</p>
-                <p class="text-slate-500 text-[13.5px] font-medium break-keep mb-5">원인 · 배경과 적의 밝기가 둘 다 40–60% 구간</p>
-                <div class="mt-auto rounded-xl bg-gradient-to-r from-[#2efcb7]/[0.12] to-transparent border-l-[3px] border-[#2efcb7] px-4 py-3">
-                    <p class="text-[#2efcb7] text-[19px] md:text-[21px] font-black font-display leading-tight break-keep">여름 폐허 → 겨울 설원</p>
-                    <p class="text-slate-300 text-[13px] font-medium leading-relaxed break-keep mt-1.5">개발 6개월 차에 배경 교체. 눈 · 안개가 원경을 덮어 배치할 에셋도 줄어듦</p>
-                </div>
-            </div>
-            <div data-reveal class="flex flex-col p-6 md:p-7 bg-[#121416] border border-white/5 rounded-2xl shadow-lg hover:border-[#2efcb7]/30 transition-colors duration-300">
-                <span class="self-start text-[11.5px] font-extrabold text-slate-400 bg-white/5 border border-white/10 rounded-md px-2.5 py-1 mb-4">여우의 복수</span>
-                <p class="text-white text-[16px] font-bold leading-snug break-keep mb-1.5">달리다 전투로 바뀔 때 화면이 심하게 흔들림</p>
-                <p class="text-slate-500 text-[13.5px] font-medium break-keep mb-5">원인 · 두 구간에 맞는 카메라 값이 정반대</p>
-                <div class="mt-auto rounded-xl bg-gradient-to-r from-[#2efcb7]/[0.12] to-transparent border-l-[3px] border-[#2efcb7] px-4 py-3">
-                    <p class="text-[#2efcb7] text-[19px] md:text-[21px] font-black font-display leading-tight break-keep">카메라 2종 + 0.4초 전환</p>
-                    <p class="text-slate-300 text-[13px] font-medium leading-relaxed break-keep mt-1.5">거리 420 ↔ 300, 시야각 100° ↔ 90°, 따라오는 지연 0.25 ↔ 0.08초</p>
-                </div>
-            </div>
-            <div data-reveal class="flex flex-col p-6 md:p-7 bg-[#121416] border border-white/5 rounded-2xl shadow-lg hover:border-[#2efcb7]/30 transition-colors duration-300">
-                <span class="self-start text-[11.5px] font-extrabold text-slate-400 bg-white/5 border border-white/10 rounded-md px-2.5 py-1 mb-4">애쉬 제로 · 보스 Zephyros</span>
-                <p class="text-white text-[16px] font-bold leading-snug break-keep mb-1.5">대쉬로 피했는데 맞거나, 일찍 눌러서 맞음</p>
-                <p class="text-slate-500 text-[13.5px] font-medium break-keep mb-5">원인 · 패턴마다 공격 판정 시작 프레임이 다름</p>
-                <div class="mt-auto rounded-xl bg-gradient-to-r from-[#2efcb7]/[0.12] to-transparent border-l-[3px] border-[#2efcb7] px-4 py-3">
-                    <p class="text-[#2efcb7] text-[19px] md:text-[21px] font-black font-display leading-tight break-keep">입력 여유 5–8프레임 확보</p>
-                    <p class="text-slate-300 text-[13px] font-medium leading-relaxed break-keep mt-1.5">전 패턴의 판정 시작 프레임을 재고 애니메이션 타이밍을 맞춤 (약 0.17–0.27초)</p>
-                </div>
-            </div>
-            <div data-reveal class="flex flex-col p-6 md:p-7 bg-[#121416] border border-white/5 rounded-2xl shadow-lg hover:border-[#2efcb7]/30 transition-colors duration-300">
-                <span class="self-start text-[11.5px] font-extrabold text-slate-400 bg-white/5 border border-white/10 rounded-md px-2.5 py-1 mb-4">애쉬 제로 · 보스 Zephyros</span>
-                <p class="text-white text-[16px] font-bold leading-snug break-keep mb-1.5">플레이어가 크게 돌아가면 보스가 엉뚱한 곳을 봄</p>
-                <p class="text-slate-500 text-[13.5px] font-medium break-keep mb-5">원인 · 보스가 방향을 10초마다만 다시 잡음</p>
-                <div class="mt-auto rounded-xl bg-gradient-to-r from-[#2efcb7]/[0.12] to-transparent border-l-[3px] border-[#2efcb7] px-4 py-3">
-                    <p class="text-[#2efcb7] text-[19px] md:text-[21px] font-black font-display leading-tight break-keep">10초 고정 → 벗어나면 즉시</p>
-                    <p class="text-slate-300 text-[13px] font-medium leading-relaxed break-keep mt-1.5">평소에는 묵직하게 10초 유지, 일정 각도 이상 벗어날 때만 바로 돌아봄</p>
-                </div>
-            </div>
-        </div>
-
-        <div data-reveal class="mb-6">
-            <h3 class="text-2xl font-black text-white font-display">AI 활용</h3>
-            <p class="mt-2 text-slate-400 text-[14.5px] font-medium break-keep">구현과 아트 초안은 생성형 AI로 만들었고, 기획 수치와 검수 규칙은 직접 정했습니다.</p>
-        </div>
-        <div data-reveal class="overflow-x-auto rounded-2xl bg-[#121416] border border-white/5 px-6">
-            <table class="w-full min-w-[680px] text-left break-keep">
-                <thead>
-                    <tr class="text-[11.5px] font-extrabold tracking-widest text-slate-500 font-display">
-                        <th class="py-3 pr-6 w-[24%]">프로젝트</th><th class="py-3 pr-6 w-[24%]">AI로 만든 것</th><th class="py-3">직접 한 것</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr class="border-t border-white/5 align-top">
-                    <td class="py-4 pr-6"><p class="text-white font-extrabold text-[15px] font-display">슬링펭귄</p><p class="text-slate-500 text-[12.5px] font-medium mt-0.5">1인 개발 · 1개월 · Google Play 출시</p></td>
-                    <td class="py-4 pr-6 text-slate-400 text-[14px] font-medium leading-relaxed">게임 코드, 아트 리소스 초안</td>
-                    <td class="py-4 text-slate-200 text-[14px] font-medium leading-relaxed">물리 · 확률 · 스테이지 구간 수치 결정. 실기기에서 업데이트 후 진행도가 사라지는 문제를 찾아 저장 방식을 수정</td>
-                </tr>
-                <tr class="border-t border-white/5 align-top">
-                    <td class="py-4 pr-6"><p class="text-white font-extrabold text-[15px] font-display">ProjectJOB</p><p class="text-slate-500 text-[12.5px] font-medium mt-0.5">웹 프로토타입 · 선택지 300개 · 연출 100컷</p></td>
-                    <td class="py-4 pr-6 text-slate-400 text-[14px] font-medium leading-relaxed">플레이 가능한 프로토타입 코드</td>
-                    <td class="py-4 text-slate-200 text-[14px] font-medium leading-relaxed">직업 시나리오 · 엔딩 판정식 · 점수식 설계. 빈 칸 · 효과가 같은 선택지 · 같은 연출 반복 등 데이터 점검 규칙 5종 정의</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
     <section id="prototypes" class="py-32 bg-[#090a0b]/60 border-y border-white/5">
         <div class="max-w-6xl mx-auto px-6 text-center">
             <span class="text-xs font-extrabold uppercase tracking-widest text-[#2efcb7] font-display block mb-2">PROTOTYPES</span>
@@ -357,111 +278,6 @@
             <div class="mt-5 flex flex-col items-center gap-3">
                 <div id="carousel-dots" class="flex justify-center items-center gap-2"></div>
                 <span id="carousel-counter" class="text-[11px] font-mono tracking-widest text-slate-500 bg-white/5 px-2 py-0.5 rounded border border-white/5">1 / 5</span>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="standard" class="py-32 bg-[#090a0b]/60 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div data-reveal class="text-center mb-14">
-                <span class="text-xs font-extrabold uppercase tracking-widest text-[#2efcb7] font-display block mb-2">DOCUMENT STANDARD</span>
-                <h2 class="text-4xl font-black text-white font-display section-title">기획서 작성 기준</h2>
-                <p class="mt-6 max-w-2xl mx-auto text-slate-400 text-[15px] font-medium leading-relaxed break-keep">
-                    구현 담당자가 되묻지 않아도 되도록 쓰는 6가지 규칙입니다.
-                </p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                <div data-reveal class="flex flex-col p-6 bg-[#121416] border border-white/5 rounded-2xl shadow-lg hover:border-[#2efcb7]/30 transition-colors duration-300">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#2efcb7]/10 text-[#2efcb7] text-[13px] font-black font-display flex items-center justify-center">01</span>
-                        <h3 class="text-white font-extrabold text-[17px] font-display break-keep leading-snug">정책에 번호를 붙입니다</h3>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#ff5a5a]/[0.06] border border-[#ff5a5a]/15 px-3.5 py-2.5 mb-2">
-                        <span class="flex-shrink-0 text-[#ff7a7a] font-black text-[13px] leading-6">✕</span>
-                        <p class="text-slate-400 text-[13.5px] font-medium leading-6 break-keep line-through decoration-slate-600">같은 규칙을 문서 곳곳에 다시 적음</p>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#2efcb7]/[0.07] border border-[#2efcb7]/20 px-3.5 py-2.5 flex-1">
-                        <span class="flex-shrink-0 text-[#2efcb7] font-black text-[13px] leading-6">✓</span>
-                        <p class="text-slate-100 text-[14px] font-semibold leading-6 break-keep">규칙을 P-01로 한 번만 정의하고, 화면 · QA 표에서는 번호로 참조</p>
-                    </div>
-                    <p class="mt-4 text-[12px] font-bold text-slate-500 break-keep">적용 · 마비노기 64p · 72p</p>
-                </div>
-                <div data-reveal class="flex flex-col p-6 bg-[#121416] border border-white/5 rounded-2xl shadow-lg hover:border-[#2efcb7]/30 transition-colors duration-300">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#2efcb7]/10 text-[#2efcb7] text-[13px] font-black font-display flex items-center justify-center">02</span>
-                        <h3 class="text-white font-extrabold text-[17px] font-display break-keep leading-snug">경계값을 따로 적습니다</h3>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#ff5a5a]/[0.06] border border-[#ff5a5a]/15 px-3.5 py-2.5 mb-2">
-                        <span class="flex-shrink-0 text-[#ff7a7a] font-black text-[13px] leading-6">✕</span>
-                        <p class="text-slate-400 text-[13.5px] font-medium leading-6 break-keep line-through decoration-slate-600">"이벤트 기간 내 참여 가능"</p>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#2efcb7]/[0.07] border border-[#2efcb7]/20 px-3.5 py-2.5 flex-1">
-                        <span class="flex-shrink-0 text-[#2efcb7] font-black text-[13px] leading-6">✓</span>
-                        <p class="text-slate-100 text-[14px] font-semibold leading-6 break-keep">시작 시각 정각은 가능, 종료 시각 정각은 불가, 수령 마감까지는 보상만 가능</p>
-                    </div>
-                    <p class="mt-4 text-[12px] font-bold text-slate-500 break-keep">적용 · 마비노기 65p</p>
-                </div>
-                <div data-reveal class="flex flex-col p-6 bg-[#121416] border border-white/5 rounded-2xl shadow-lg hover:border-[#2efcb7]/30 transition-colors duration-300">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#2efcb7]/10 text-[#2efcb7] text-[13px] font-black font-display flex items-center justify-center">03</span>
-                        <h3 class="text-white font-extrabold text-[17px] font-display break-keep leading-snug">버튼 상태를 나눠 적습니다</h3>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#ff5a5a]/[0.06] border border-[#ff5a5a]/15 px-3.5 py-2.5 mb-2">
-                        <span class="flex-shrink-0 text-[#ff7a7a] font-black text-[13px] leading-6">✕</span>
-                        <p class="text-slate-400 text-[13.5px] font-medium leading-6 break-keep line-through decoration-slate-600">"버튼 비활성"</p>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#2efcb7]/[0.07] border border-[#2efcb7]/20 px-3.5 py-2.5 flex-1">
-                        <span class="flex-shrink-0 text-[#2efcb7] font-black text-[13px] leading-6">✓</span>
-                        <p class="text-slate-100 text-[14px] font-semibold leading-6 break-keep">보이는지 · 어떤 모양인지 · 누를 수 있는지 · 서버에 요청을 보내는지 따로</p>
-                    </div>
-                    <p class="mt-4 text-[12px] font-bold text-slate-500 break-keep">적용 · 마비노기 70p · 71p</p>
-                </div>
-                <div data-reveal class="flex flex-col p-6 bg-[#121416] border border-white/5 rounded-2xl shadow-lg hover:border-[#2efcb7]/30 transition-colors duration-300">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#2efcb7]/10 text-[#2efcb7] text-[13px] font-black font-display flex items-center justify-center">04</span>
-                        <h3 class="text-white font-extrabold text-[17px] font-display break-keep leading-snug">확인한 것과 제안한 것을 나눕니다</h3>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#ff5a5a]/[0.06] border border-[#ff5a5a]/15 px-3.5 py-2.5 mb-2">
-                        <span class="flex-shrink-0 text-[#ff7a7a] font-black text-[13px] leading-6">✕</span>
-                        <p class="text-slate-400 text-[13.5px] font-medium leading-6 break-keep line-through decoration-slate-600">확인 못 한 수치를 사실처럼 적음</p>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#2efcb7]/[0.07] border border-[#2efcb7]/20 px-3.5 py-2.5 flex-1">
-                        <span class="flex-shrink-0 text-[#2efcb7] font-black text-[13px] leading-6">✓</span>
-                        <p class="text-slate-100 text-[14px] font-semibold leading-6 break-keep">표마다 확인됨 · 신규 제안 · 확인 필요 · 더미 표시</p>
-                    </div>
-                    <p class="mt-4 text-[12px] font-bold text-slate-500 break-keep">적용 · 마비노기 64p · 66p</p>
-                </div>
-                <div data-reveal class="flex flex-col p-6 bg-[#121416] border border-white/5 rounded-2xl shadow-lg hover:border-[#2efcb7]/30 transition-colors duration-300">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#2efcb7]/10 text-[#2efcb7] text-[13px] font-black font-display flex items-center justify-center">05</span>
-                        <h3 class="text-white font-extrabold text-[17px] font-display break-keep leading-snug">순서도는 표준 도형으로 그립니다</h3>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#ff5a5a]/[0.06] border border-[#ff5a5a]/15 px-3.5 py-2.5 mb-2">
-                        <span class="flex-shrink-0 text-[#ff7a7a] font-black text-[13px] leading-6">✕</span>
-                        <p class="text-slate-400 text-[13.5px] font-medium leading-6 break-keep line-through decoration-slate-600">네모 박스와 화살표만 사용</p>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#2efcb7]/[0.07] border border-[#2efcb7]/20 px-3.5 py-2.5 flex-1">
-                        <span class="flex-shrink-0 text-[#2efcb7] font-black text-[13px] leading-6">✓</span>
-                        <p class="text-slate-100 text-[14px] font-semibold leading-6 break-keep">시작 · 종료, 판단은 마름모, 데이터 테이블은 원통. 테이블 이름을 도형에 적음</p>
-                    </div>
-                    <p class="mt-4 text-[12px] font-bold text-slate-500 break-keep">적용 · Zephyros · 애쉬 제로 · 코드베인 · 슬링펭귄</p>
-                </div>
-                <div data-reveal class="flex flex-col p-6 bg-[#121416] border border-white/5 rounded-2xl shadow-lg hover:border-[#2efcb7]/30 transition-colors duration-300">
-                    <div class="flex items-center gap-3 mb-4">
-                        <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-[#2efcb7]/10 text-[#2efcb7] text-[13px] font-black font-display flex items-center justify-center">06</span>
-                        <h3 class="text-white font-extrabold text-[17px] font-display break-keep leading-snug">수치에 출처를 붙입니다</h3>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#ff5a5a]/[0.06] border border-[#ff5a5a]/15 px-3.5 py-2.5 mb-2">
-                        <span class="flex-shrink-0 text-[#ff7a7a] font-black text-[13px] leading-6">✕</span>
-                        <p class="text-slate-400 text-[13.5px] font-medium leading-6 break-keep line-through decoration-slate-600">"적절한 수치로 조정"</p>
-                    </div>
-                    <div class="flex gap-2.5 items-start rounded-lg bg-[#2efcb7]/[0.07] border border-[#2efcb7]/20 px-3.5 py-2.5 flex-1">
-                        <span class="flex-shrink-0 text-[#2efcb7] font-black text-[13px] leading-6">✓</span>
-                        <p class="text-slate-100 text-[14px] font-semibold leading-6 break-keep">빌드에서 읽은 값 · 플레이로 잰 값 · 설계용 더미를 구분</p>
-                    </div>
-                    <p class="mt-4 text-[12px] font-bold text-slate-500 break-keep">적용 · 통통 디펜스 · ProjectJOB · 슬링펭귄</p>
-                </div>
             </div>
         </div>
     </section>
@@ -697,7 +513,7 @@
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">PPT</span>
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">SVN</span>
                 </div>
-                <p class="mt-4 pt-4 border-t border-white/5 text-[12.5px] text-slate-500 font-medium leading-relaxed break-keep">데이터 테이블은 Excel, 기획서는 PPT · Canva. 생성형 AI는 프로토타입 구현 · 아트 초안 · 기획서 초안에 쓰고, 수치와 검수 기준은 직접 정합니다(PROCESS 섹션 참고).</p>
+                <p class="mt-4 pt-4 border-t border-white/5 text-[12.5px] text-slate-500 font-medium leading-relaxed break-keep">데이터 테이블은 Excel, 기획서는 PPT · Canva. 프로토타입 코드와 아트 리소스 초안은 생성형 AI로 만들었습니다.</p>
             </div>
         </div>
     </section>
