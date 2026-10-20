@@ -68,11 +68,12 @@
             <svg class="w-5 h-5 text-[#2efcb7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="3"></rect><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"></path></svg>
             게임기획자 김태윤
         </a>
-        <div class="hidden md:flex gap-8 text-xs font-bold tracking-widest text-slate-400 font-display">
+        <div class="hidden md:flex gap-5 lg:gap-7 text-xs font-bold tracking-widest text-slate-400 font-display">
             <a href="#home" data-nav="home" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">HOME</a>
             <a href="#career" data-nav="career" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">CAREER</a>
             <a href="#about" data-nav="about" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">ABOUT</a>
             <a href="#prototypes" data-nav="prototypes" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">PROTOTYPES</a>
+            <a href="#standard" data-nav="standard" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">STANDARD</a>
             <a href="#portfolio" data-nav="portfolio" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">PORTFOLIO</a>
             <a href="#projects" data-nav="projects" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">PROJECTS</a>
             <a href="#skills" data-nav="skills" class="nav-link hover:text-[#2efcb7] transition-colors duration-300">SKILLS</a>
@@ -91,6 +92,7 @@
             <a href="#career" data-nav="career" class="nav-link-mobile">CAREER</a>
             <a href="#about" data-nav="about" class="nav-link-mobile">ABOUT</a>
             <a href="#prototypes" data-nav="prototypes" class="nav-link-mobile">PROTOTYPES</a>
+            <a href="#standard" data-nav="standard" class="nav-link-mobile">STANDARD</a>
             <a href="#portfolio" data-nav="portfolio" class="nav-link-mobile">PORTFOLIO</a>
             <a href="#projects" data-nav="projects" class="nav-link-mobile">PROJECTS</a>
             <a href="#skills" data-nav="skills" class="nav-link-mobile">SKILLS</a>
@@ -289,6 +291,62 @@
         </div>
     </section>
 
+
+    <section id="standard" class="py-32 bg-[#090a0b]/60 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div data-reveal class="text-center mb-10">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-[#2efcb7] font-display block mb-2">DOCUMENT STANDARD</span>
+                <h2 class="text-4xl font-black text-white font-display section-title">기획서 작성 기준</h2>
+                <p class="mt-6 max-w-3xl mx-auto text-slate-400 text-[15px] font-medium leading-relaxed break-keep">
+                    기획서를 쓸 때 지키는 규칙입니다. 아래 문서들에 실제로 적용돼 있습니다.
+                </p>
+            </div>
+            <div data-reveal class="mb-12 overflow-x-auto">
+                <div class="flex items-center justify-start md:justify-center gap-2 min-w-max px-1 pb-2">
+                    <span class="shrink-0 px-3 py-1.5 rounded-md bg-[#1a1d21] border border-white/10 text-[12.5px] font-bold text-slate-300">사용자 행동</span><span class="shrink-0 text-[#2efcb7]/60 text-xs font-black">&rsaquo;</span><span class="shrink-0 px-3 py-1.5 rounded-md bg-[#1a1d21] border border-white/10 text-[12.5px] font-bold text-slate-300">정책 · 선행조건</span><span class="shrink-0 text-[#2efcb7]/60 text-xs font-black">&rsaquo;</span><span class="shrink-0 px-3 py-1.5 rounded-md bg-[#1a1d21] border border-white/10 text-[12.5px] font-bold text-slate-300">참조 테이블 · 조건식</span><span class="shrink-0 text-[#2efcb7]/60 text-xs font-black">&rsaquo;</span><span class="shrink-0 px-3 py-1.5 rounded-md bg-[#1a1d21] border border-white/10 text-[12.5px] font-bold text-slate-300">처리 · 저장 값</span><span class="shrink-0 text-[#2efcb7]/60 text-xs font-black">&rsaquo;</span><span class="shrink-0 px-3 py-1.5 rounded-md bg-[#1a1d21] border border-white/10 text-[12.5px] font-bold text-slate-300">화면 결과 · 스트링</span><span class="shrink-0 text-[#2efcb7]/60 text-xs font-black">&rsaquo;</span><span class="shrink-0 px-3 py-1.5 rounded-md bg-[#1a1d21] border border-white/10 text-[12.5px] font-bold text-slate-300">검수 Case</span>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div data-reveal class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg hover:border-[#2efcb7]/25 transition-colors duration-300">
+                    <span class="text-[#2efcb7]/70 text-[11px] font-extrabold font-display tracking-widest block mb-2">01</span>
+                    <h3 class="text-white font-bold text-[16px] mb-2.5 font-display break-keep">정책에 번호를 붙인다</h3>
+                    <p class="text-slate-400 text-[14px] font-medium leading-relaxed break-keep mb-3">정책을 P-01처럼 고정하고, 이후의 판정 Case · 화면 명세 · 검수 Case가 모두 그 번호를 참조합니다. 같은 규칙을 문서 여러 곳에 다시 쓰지 않습니다.</p>
+                    <p class="text-[12px] font-mono text-slate-500 break-keep">마비노기 기획서 64p · 72p</p>
+                </div>
+                <div data-reveal class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg hover:border-[#2efcb7]/25 transition-colors duration-300">
+                    <span class="text-[#2efcb7]/70 text-[11px] font-extrabold font-display tracking-widest block mb-2">02</span>
+                    <h3 class="text-white font-bold text-[16px] mb-2.5 font-display break-keep">경계값을 Case로 나눈다</h3>
+                    <p class="text-slate-400 text-[14px] font-medium leading-relaxed break-keep mb-3">재화는 0 · 부족 · 동일 · 초과를, 기간은 시작 포함 · 종료 제외를 각각 Case로 씁니다. 설정 오류는 정상 판정에서 분리합니다.</p>
+                    <p class="text-[12px] font-mono text-slate-500 break-keep">마비노기 기획서 65p · 70p</p>
+                </div>
+                <div data-reveal class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg hover:border-[#2efcb7]/25 transition-colors duration-300">
+                    <span class="text-[#2efcb7]/70 text-[11px] font-extrabold font-display tracking-widest block mb-2">03</span>
+                    <h3 class="text-white font-bold text-[16px] mb-2.5 font-display break-keep">"버튼 비활성"으로 끝내지 않는다</h3>
+                    <p class="text-slate-400 text-[14px] font-medium leading-relaxed break-keep mb-3">노출 · 외형 · 선택 · 요청을 따로 적습니다. 구현이 해석할 여지를 남기지 않는 것이 목적입니다.</p>
+                    <p class="text-[12px] font-mono text-slate-500 break-keep">마비노기 기획서 70p · 71p</p>
+                </div>
+                <div data-reveal class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg hover:border-[#2efcb7]/25 transition-colors duration-300">
+                    <span class="text-[#2efcb7]/70 text-[11px] font-extrabold font-display tracking-widest block mb-2">04</span>
+                    <h3 class="text-white font-bold text-[16px] mb-2.5 font-display break-keep">확인한 것과 제안한 것을 구분한다</h3>
+                    <p class="text-slate-400 text-[14px] font-medium leading-relaxed break-keep mb-3">표마다 확인됨 · 신규 제안 · 확인 필요 · 더미를 표시합니다. 접근하지 못한 수치를 사실처럼 쓰지 않습니다.</p>
+                    <p class="text-[12px] font-mono text-slate-500 break-keep">마비노기 기획서 64p · 66p</p>
+                </div>
+                <div data-reveal class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg hover:border-[#2efcb7]/25 transition-colors duration-300">
+                    <span class="text-[#2efcb7]/70 text-[11px] font-extrabold font-display tracking-widest block mb-2">05</span>
+                    <h3 class="text-white font-bold text-[16px] mb-2.5 font-display break-keep">순서도는 표준 도형으로 그린다</h3>
+                    <p class="text-slate-400 text-[14px] font-medium leading-relaxed break-keep mb-3">Start / End 단말, 판단은 마름모, 데이터 테이블은 원통으로 구분하고 참조하는 테이블명을 도형에 적습니다.</p>
+                    <p class="text-[12px] font-mono text-slate-500 break-keep">Zephyros · 애쉬 제로 · 코드베인 · 슬링펭귄</p>
+                </div>
+                <div data-reveal class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg hover:border-[#2efcb7]/25 transition-colors duration-300">
+                    <span class="text-[#2efcb7]/70 text-[11px] font-extrabold font-display tracking-widest block mb-2">06</span>
+                    <h3 class="text-white font-bold text-[16px] mb-2.5 font-display break-keep">수치에는 출처를 붙인다</h3>
+                    <p class="text-slate-400 text-[14px] font-medium leading-relaxed break-keep mb-3">빌드에서 읽은 값, 플레이로 관측한 값, 설계용 더미를 구분해 적습니다. 추정이면 추정이라고 씁니다.</p>
+                    <p class="text-[12px] font-mono text-slate-500 break-keep">통통 디펜스 · ProjectJOB · 슬링펭귄</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="portfolio" class="py-32 max-w-7xl mx-auto px-6">
         <div data-reveal class="text-center mb-16">
             <span class="text-xs font-extrabold uppercase tracking-widest text-[#00f0ff] font-display block mb-2">DOCUMENT</span>
@@ -388,7 +446,7 @@
                                 <span class="text-[12px] font-bold text-[#2efcb7] border border-[#2efcb7]/30 px-2 py-0.5 rounded">#UE5</span>
                                 <span class="text-[12px] font-bold text-[#2efcb7] border border-[#2efcb7]/30 px-2 py-0.5 rounded">#Blueprint</span>
                             </div>
-                            <p class="text-[15px] text-slate-400 font-medium leading-relaxed mb-8 break-keep">졸업 작품으로 제작된 러닝 액션 x 소울라이크 게임입니다. 기획부터 개발까지 참여하였으며, 여우 캐릭터의 역동적인 움직임과 동양적인 색채의 배경을 특징으로 합니다.</p>
+                            <p class="text-[15px] text-slate-400 font-medium leading-relaxed mb-8 break-keep">졸업 작품으로 만든 러닝 액션 × 소울라이크입니다. 3인 팀에서 <strong class="text-white font-bold">부팀장으로 전투 시스템 · 스킬 · 적 AI</strong>를 담당했습니다. 질주와 전투의 카메라 프로파일을 분리해 0.4초 보간으로 전환하고, 가드를 없앤 대신 <strong class="text-white font-bold">회피 무적 0.30초 · 저스트 회피 0.12초</strong>로 판정을 잡았습니다. 적 3종의 체력 · 자세 · 텔레그래프를 표로 정리하고 Behavior Tree로 AI를 구현했습니다.</p>
                         </div>
                         <div class="grid grid-cols-2 gap-3">
                             <a href="https://fox-revenge-gdd.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-sm btn-dark">기획서 바로보기 📄</a>
@@ -497,6 +555,7 @@
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">전투 디자인</span>
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">콘텐츠 디자인</span>
                 </div>
+                <p class="mt-4 pt-4 border-t border-white/5 text-[12.5px] text-slate-500 font-medium leading-relaxed break-keep">애쉬 제로 보스 전담 · 여우의 복수 전투 · 적 AI · 통통 디펜스 랭크전 신규 기획 · 마비노기 모바일 이벤트 콘텐츠 제안</p>
             </div>
             <div data-reveal class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg">
                 <span class="text-[11px] font-extrabold text-[#2efcb7] bg-[#2efcb7]/10 px-2.5 py-1 rounded-md inline-block mb-4 tracking-wider">&lt;/&gt; 기술 스택</span>
@@ -507,6 +566,7 @@
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">Behavior Tree</span>
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">Data Table Structure</span>
                 </div>
+                <p class="mt-4 pt-4 border-t border-white/5 text-[12.5px] text-slate-500 font-medium leading-relaxed break-keep">UE5 팀 프로젝트 2회(블루프린트 · Behavior Tree) · Unity 1인 개발 후 Google Play 출시 · 드랍 · 아이템 · 컬렉션 · 제작식 테이블 관리(현업)</p>
             </div>
             <div data-reveal class="p-6 bg-[#121416] border border-white/5 rounded-xl shadow-lg">
                 <span class="text-[11px] font-extrabold text-[#2efcb7] bg-[#2efcb7]/10 px-2.5 py-1 rounded-md inline-block mb-4 tracking-wider">🔧 사용 도구</span>
@@ -518,6 +578,7 @@
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">PPT</span>
                     <span class="inline-block bg-[#1a1d21] text-slate-300 border border-white/10 px-3 py-1 rounded-md text-sm mr-2 mb-2 hover:border-white/25 hover:text-slate-100 transition-colors duration-200">SVN</span>
                 </div>
+                <p class="mt-4 pt-4 border-t border-white/5 text-[12.5px] text-slate-500 font-medium leading-relaxed break-keep">데이터 테이블은 Excel, 기획서는 PPT · Canva, 프로토타입과 아트 리소스는 생성형 AI로 만들어 문서보다 먼저 검증합니다.</p>
             </div>
         </div>
     </section>
