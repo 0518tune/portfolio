@@ -102,6 +102,25 @@ body {
 .btn-mint:hover { background: #1de8a3; box-shadow: 0 4px 22px rgba(46, 252, 183, 0.4); }
 .btn-dark { background: #111418; color: #cbd5e1; border: 1px solid rgba(100, 116, 139, 0.28); }
 .btn-dark:hover { background: #181d24; border-color: rgba(100, 116, 139, 0.5); color: #e2e8f0; box-shadow: 0 0 14px rgba(148, 163, 184, 0.18); }
+
+/* 버튼 높이 통일: 아이콘 + 한 줄 문구 (2026-10-22) */
+.btn-sm { gap: 6px; min-height: 42px; }
+.btn-sm svg { width: 14px; height: 14px; flex: none; }
+.btn-sm span { min-width: 0; }
+.btn-cyan { background: #00f0ff; color: #000; box-shadow: 0 2px 12px rgba(0, 240, 255, 0.22); }
+.btn-cyan:hover { background: #00d8e6; box-shadow: 0 4px 22px rgba(0, 240, 255, 0.4); }
+.btn-line-cyan { border: 1px solid rgba(0, 240, 255, 0.6); color: #00f0ff; }
+.btn-line-cyan:hover { background: rgba(0, 240, 255, 0.1); }
+.btn-line-mint { border: 1px solid rgba(46, 252, 183, 0.6); color: #2efcb7; }
+.btn-line-mint:hover { background: rgba(46, 252, 183, 0.1); }
+.doc-btns .btn-sm { font-size: 13px; min-height: 46px; }
+.hero-cta a { min-height: 48px; }
+@media (min-width: 640px) { .hero-cta a { min-width: 178px; } }
+
+/* 상단 소개: 다룰 수 있는 기획 영역 */
+.hero-areas li { font-size: 12px; font-weight: 600; line-height: 1; padding: 7px 11px; border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.25); color: #94a3b8; background: rgba(255, 255, 255, 0.03); }
+.hero-areas li.is-main { border-color: rgba(46, 252, 183, 0.55); color: #2efcb7; background: rgba(46, 252, 183, 0.08); font-weight: 800; }
 .btn-outline-mint { border: 1px solid rgba(46, 252, 183, 0.5); color: #2efcb7; background: rgba(46, 252, 183, 0.04); }
 .btn-outline-mint:hover { background: rgba(46, 252, 183, 0.12); border-color: #2efcb7; box-shadow: 0 0 18px rgba(46, 252, 183, 0.32); }
 
