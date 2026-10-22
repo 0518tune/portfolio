@@ -352,7 +352,7 @@ table.rec td.t span { color: var(--muted); font-size: 8.8pt; }
     <h2>보유 역량 &amp; 툴 <em>CORE SKILLS</em></h2>
     <dl class="skills">
       <dt>기획</dt>
-      <dd><b>시스템 기획</b> — 인벤토리, 성장·강화, 스킬 구조 · <b>전투 / 밸런스</b> — 공방 리듬, 자세 게이지, 텔레그래프, 스탯 및 비용 곡선 ·
+      <dd><b>시스템 기획</b> — 인벤토리, 성장·강화, 스킬 구조 · <b>전투 / 밸런스</b> — 공방 리듬, 텔레그래프, 스탯 및 비용 곡선 ·
           <b>AI 설계</b> — Behavior Tree, 블랙보드, 서비스·데코레이터 · <b>데이터 테이블</b> — ID 정규화, 스트링 키, 효과 참조 구조 ·
           <b>라이브 데이터 운영</b> — 드랍 · 컬렉션 · 제작식 테이블 참조 정합성 (현업) ·
           <b>콘텐츠·이벤트 기획</b> — 보상 구성, 일정, 사용 테이블 정의 · <b>UI 흐름 및 HUD 규격</b> · <b>역기획 및 기능 명세</b></dd>
@@ -418,24 +418,21 @@ table.rec td.t span { color: var(--muted); font-size: 8.8pt; }
     <!-- ---- 3. 여우의 복수 ---- -->
     <article class="proj">
       <div class="proj-top">
-        <h3>여우의 복수 (Revenge of the Fox) <em>— 러닝 액션 × 소울라이크</em></h3>
+        <h3>여우의 복수 (Revenge of the Fox) <em>— 러닝 액션 어드벤처</em></h3>
         <div class="when">2024.03 – 2024.12 (10개월)</div>
       </div>
       <div class="meta">
         <span class="tag">우수상 · 전체 2위</span>
-        Unreal Engine 5 · Blueprint · PC <span class="sep">|</span> 타깃: 액션·다크판타지를 즐기는 20–30대 <span class="sep">|</span>
-        <b>부팀장 / 전투 시스템 · 스킬 · 적 AI</b> (3인 팀) <span class="sep">|</span> 성결대학교 컴퓨터공학과 졸업작품
+        Unreal Engine 5.4 · Blueprint · PC <span class="sep">|</span>
+        <b>부팀장 / 전투 · 스킬 · 적 AI</b> (3인 팀) <span class="sep">|</span> 성결대학교 컴퓨터공학과 졸업작품
       </div>
       <ul class="star">
-        <li><span class="k">과제</span>달리는 구간과 싸우는 구간이 요구하는 카메라·이동 값이 정반대여서, 전환할 때마다 화면이 심하게 흔들렸습니다. 프로젝트 내내 가장 오래 붙잡은 문제입니다.</li>
-        <li><span class="k">실행</span>질주용과 전투용 카메라 프로파일을 따로 만들고(암 길이 <span class="num">420↔300uu</span>, FOV <span class="num">100°↔90°</span>, 추적 지연 <span class="num">0.25↔0.08s</span>) <b><span class="num">0.4</span>초에 걸쳐 보간</b>하도록 했습니다. 멀미는 잡으면서 질주의 속도감과 전투의 타격감은 남길 수 있었습니다.</li>
-        <li><span class="k">실행</span>막는 수단을 없애고 회피만 남긴 대신 판정을 촘촘히 잡았습니다. 회피 무적 <span class="num">0.30</span>초에 이동 <span class="num">420uu</span>, 저스트 회피는 <span class="num">0.12</span>초 안에 들어와야 성립합니다. 자세 게이지 <span class="num">100</span> 기준으로 약공격이 <span class="num">6</span>, 강공격이 <span class="num">14</span>를 깎는데 저스트 회피는 <span class="num">26</span>을 깎아, <b>잘 피한 쪽에 보상이 몰리도록</b> 했습니다.</li>
-        <li><span class="k">실행</span>늑대·인랑·우두머리 세 종류의 체력과 자세, 공격력, 텔레그래프를 표로 정리했습니다. 보스는 페이즈가 넘어갈수록 텔레그래프를 <span class="num">1.0</span>초에서 <span class="num">0.7</span>초, <span class="num">0.5</span>초로 줄여 같은 패턴이라도 점점 어렵게 느껴지게 했고, 적 AI는 <b>Behavior Tree와 블랙보드</b>로 인지 → 접근 → 텔레그래프 → 공격 → 후퇴를 구현했습니다.</li>
-        <li><span class="k">실행</span>추격 구간은 늑대 속도를 <span class="num">910uu/s</span>로 잡아 플레이어 질주(<span class="num">950</span>)보다 조금 느리게 두고, <span class="num">±12</span>% 범위에서 붙었다 떨어지게 했습니다. <span class="num">300uu</span> 안으로는 들어오지 않게 해 즉사는 막았고, 이 구간에서 죽어도 재화는 잃지 않게 했습니다. <b>조작 실수와 전투 패배를 같은 무게로 벌하고 싶지 않았기 때문</b>입니다.</li>
-        <li><span class="k">실행</span>테스트마다 풀숲에서 늑대를 놓친다는 얘기가 반복됐습니다. 배경과 적의 명도가 둘 다 <span class="num">40–60</span>% 구간에 몰려 있던 게 원인이라, 개발 <span class="num">6</span>개월 차에 여름 폐허를 겨울 설원으로 갈아엎었습니다. <b>예쁜 배경보다 읽히는 배경을 택한 판단</b>이었고, 눈과 안개가 원경을 덮으면서 3인 팀이 배치할 에셋도 함께 줄었습니다.</li>
-        <li class="res"><span class="k">결과</span><b>컴퓨터공학과 설계 프로젝트 경진대회 (게임 개발) 우수상</b> — 졸업작품 전체 2위. 스테이지 1을 <span class="num">12–15</span>분 분량의 수직 슬라이스로 완주했습니다.</li>
+        <li><span class="k">구조</span>늑대에게 쫓기는 도망 스테이지와 돌아서서 싸우는 전투 스테이지를 나눠 배치했습니다.</li>
+        <li><span class="k">실행</span>전투 스테이지의 기본 공격 · 구르기 · 스킬 4종을 블루프린트로 구현했습니다. 스킬은 화면 하단 4칸에서 골라 쓰고, 고른 칸은 빨간 테두리로 표시합니다.</li>
+        <li><span class="k">실행</span>적은 늑대 1종입니다. <b>Behavior Tree와 블랙보드</b>로 추격과 근접 공격을 만들고, 회색 박스 레벨에서 먼저 확인한 뒤 마을 · 숲 레벨로 옮겼습니다.</li>
+        <li class="res"><span class="k">결과</span><b>컴퓨터공학과 설계 프로젝트 경진대회 (게임 구현) 우수상</b> — 졸업작품 전체 2위.</li>
       </ul>
-      <div class="deliver"><b>산출물</b> 게임 기획서 v2.0 39p · 적/보스 스펙 테이블 · 성장 비용 곡선(지수 <span class="num">1.35^n</span>) · 조작 배치 명세 · HUD 규격 및 UI 개선 백로그 7건</div>
+      <div class="deliver"><b>산출물</b> 게임 기획 정리 14p · 시연 영상 5분 52초</div>
     </article>
 
     <!-- ---- 4. 코드베인 역기획 ---- -->
