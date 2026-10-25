@@ -429,10 +429,10 @@ table.rec td.t span { color: var(--muted); font-size: 8.8pt; }
       <ul class="star">
         <li><span class="k">구조</span>늑대에게 쫓기는 도망 스테이지와 돌아서서 싸우는 전투 스테이지를 나눠 배치했습니다.</li>
         <li><span class="k">실행</span>전투 스테이지의 기본 공격 · 구르기 · 스킬 4종을 블루프린트로 구현했습니다. 스킬은 화면 하단 4칸에서 골라 쓰고, 고른 칸은 빨간 테두리로 표시합니다.</li>
-        <li><span class="k">실행</span>적은 늑대 1종입니다. <b>Behavior Tree와 블랙보드</b>로 추격과 근접 공격을 만들고, 회색 박스 레벨에서 먼저 확인한 뒤 마을 · 숲 레벨로 옮겼습니다.</li>
+        <li><span class="k">실행</span>적은 늑대 1종입니다. <b>PawnSensing으로 플레이어를 감지 → AI MoveTo로 추적(도착 반경 70) → 공격 몽타주 재생 → 몽타주 길이만큼 대기</b>하는 블루프린트를 만들고, 회색 박스 레벨에서 먼저 확인한 뒤 마을 · 숲 레벨로 옮겼습니다.</li>
         <li class="res"><span class="k">결과</span><b>컴퓨터공학과 설계 프로젝트 경진대회 (게임 구현) 우수상</b> — 졸업작품 전체 2위.</li>
       </ul>
-      <div class="deliver"><b>산출물</b> 게임 기획 정리 14p · 시연 영상 5분 52초</div>
+      <div class="deliver"><b>산출물</b> 게임 기획 정리 23p (순서도 2 · 검수 Case 13) · 시연 영상 5분 52초</div>
     </article>
 
     <!-- ---- 4. 코드베인 역기획 ---- -->
